@@ -1,0 +1,22 @@
+generated: '2026-07-24'
+method: searched
+source: probed /.well-known/ paths on rotessa.com and api.rotessa.com
+note: >-
+  No genuine /.well-known/ discovery documents are published. The marketing site
+  (rotessa.com, WordPress) returns an HTTP 200 soft-404 HTML shell (title
+  "404 Error Page - Rotessa") for every /.well-known/ path, so those 200s are not
+  real documents. The API host (api.rotessa.com) returns a true 404 for all
+  /.well-known/ probes. Recorded as honest negative data; no WellKnown pointer wired.
+hosts:
+  - host: https://rotessa.com
+    documents:
+      - { path: /.well-known/security.txt, status: 200, real: false, note: soft-404 HTML shell }
+      - { path: /.well-known/openid-configuration, status: 200, real: false, note: soft-404 HTML shell }
+      - { path: /.well-known/oauth-authorization-server, status: 404 }
+      - { path: /.well-known/api-catalog, status: 200, real: false, note: soft-404 HTML shell }
+      - { path: /.well-known/ai-plugin.json, status: 200, real: false, note: soft-404 HTML shell }
+  - host: https://api.rotessa.com
+    documents:
+      - { path: /.well-known/security.txt, status: 404 }
+      - { path: /.well-known/openid-configuration, status: 404 }
+      - { path: /.well-known/oauth-authorization-server, status: 404 }

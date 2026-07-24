@@ -1,0 +1,47 @@
+generated: '2026-07-24'
+method: derived
+source: openapi/rotessa-openapi.yml
+description: >-
+  Entity-relationship graph derived from the Rotessa OpenAPI schemas and id-reference
+  fields. Rotessa's model is a simple three-entity chain: a Customer owns Transaction
+  Schedules, and each schedule generates Financial Transactions.
+entities:
+  - name: Customer
+    key: id
+    also_keyed_by: [uuid, custom_identifier]
+    description: A bank-account holder Rotessa withdraws recurring payments from.
+  - name: TransactionSchedule
+    key: id
+    also_keyed_by: [uuid]
+    description: A one-time or recurring PAD/ACH schedule against a customer's bank account.
+  - name: FinancialTransaction
+    key: id
+    also_keyed_by: [uuid]
+    description: An individual debit result produced by a transaction schedule.
+  - name: Address
+    key: null
+    description: Embedded value object on Customer (not independently addressable).
+relationships:
+  - from: Customer
+    to: TransactionSchedule
+    type: has_many
+    via: transaction_schedules
+  - from: Customer
+    to: FinancialTransaction
+    type: has_many
+    via: financial_transactions
+  - from: TransactionSchedule
+    to: FinancialTransaction
+    type: has_many
+    via: financial_transactions
+  - from: FinancialTransaction
+    to: TransactionSchedule
+    type: belongs_to
+    via: transaction_schedule_id
+  - from: Customer
+    to: Address
+    type: has_one
+    via: address
+id_prefixes:
+  published: false
+  notes: Rotessa uses plain integer ids plus uuids; no documented type-prefixed id scheme.

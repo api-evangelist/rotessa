@@ -1,0 +1,17 @@
+generated: '2026-07-24'
+method: derived
+source: openapi/rotessa-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: apiKeyAuth
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: 'API key placed in the Authorization header in the form `Authorization: Token
+    token="<your_api_key>"`. Keys are created and revoked in the Rotessa admin portal.'
+  sources:
+  - openapi/rotessa-openapi.yml

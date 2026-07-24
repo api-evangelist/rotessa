@@ -1,0 +1,65 @@
+generated: '2026-07-24'
+method: searched
+source: https://rotessa.com/docs/
+description: >-
+  Cross-cutting request/response semantics for the Rotessa v1 REST API, captured from
+  the published documentation and the generated OpenAPI.
+authentication:
+  style: api-key
+  location: header
+  header: Authorization
+  format: 'Token token="<your_api_key>"'
+  notes: >-
+    API keys are created and revoked in the Rotessa admin portal. Separate keys per
+    environment (production vs sandbox). No OAuth; there is no scope surface.
+base_urls:
+  production: https://api.rotessa.com/v1
+  sandbox: https://sandbox-api.rotessa.com/v1
+versioning:
+  scheme: uri-path
+  current: v1
+  notes: Version is pinned in the URL path (/v1). No date- or header-based versioning documented.
+content_type:
+  request: application/json
+  response: application/json
+  notes: Requesting a non-JSON format returns 406 Not Acceptable.
+idempotency:
+  supported: false
+  notes: >-
+    No idempotency-key header or parameter is documented. Some update flows are offered
+    both as PATCH and as a POST alias (update_via_post, create_with_custom_identifier)
+    for clients that cannot issue PATCH, but there is no request-replay dedupe contract.
+pagination:
+  style: page-number
+  applies_to: [GET /transaction_report]
+  params:
+    - { name: page, description: 'Page selected based on 1000 transactions per page' }
+  page_size: 1000
+  notes: >-
+    Only the transaction report is paginated. Customer and schedule lookups are
+    single-object or full-list responses without pagination parameters.
+filtering:
+  transaction_report:
+    - { name: start_date, format: YYYY-MM-DD, required: true }
+    - { name: end_date, format: YYYY-MM-DD, required: false }
+    - { name: status, enum: [All, Pending, Approved, Declined, Chargeback], default: All }
+identifiers:
+  customer:
+    - { field: id, description: Rotessa-assigned integer customer ID }
+    - { field: uuid, description: Rotessa-assigned UUID }
+    - { field: custom_identifier, description: merchant-supplied unique identifier; dedicated lookup/create-by-custom-identifier endpoints }
+  transaction_schedule: [id, uuid]
+  financial_transaction: [id, uuid, transaction_schedule_id]
+error_envelope:
+  shape: '{ "errors": [ { "error_code": string, "error_message": string } ] }'
+  format: custom
+  not_rfc9457: true
+  see: errors/rotessa-problem-types.yml
+rate_limiting:
+  documented: false
+  notes: No rate-limit headers or published quotas found in the documentation.
+cross_links:
+  authentication: authentication/rotessa-authentication.yml
+  errors: errors/rotessa-problem-types.yml
+  decline_codes: errors/rotessa-decline-codes.yml
+  lifecycle: lifecycle/rotessa-lifecycle.yml

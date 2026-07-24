@@ -1,0 +1,33 @@
+generated: '2026-07-24'
+method: searched
+source: https://support.rotessa.com/rotessas-sandbox-and-api
+description: >-
+  Rotessa provides a free, fully separate sandbox environment for testing the API
+  before moving to live money movement.
+environments:
+  live:
+    base_url: https://api.rotessa.com/v1
+    portal: https://app.rotessa.com/
+  sandbox:
+    base_url: https://sandbox-api.rotessa.com/v1
+    signup: https://sandbox.rotessa.com/
+    notes: >-
+      Sign up at sandbox.rotessa.com, then email support@rotessa.com with your signup
+      username/email to have the sandbox account approved and gain API access.
+separation:
+  model: separate-hosts-and-keys
+  notes: >-
+    Test and live are fully separate hosts (sandbox-api.rotessa.com vs api.rotessa.com),
+    each with its own API key issued from that environment's admin portal. A live key
+    will not authenticate against the sandbox host and vice versa.
+api_keys:
+  self_service: false
+  notes: >-
+    Sandbox access is gated: keys are granted after the support team approves the
+    signup. Keys are then created/revoked in the admin portal ("Create API Key").
+test_values:
+  published: false
+  notes: >-
+    Rotessa does not publish fixed magic test bank-account numbers, test card values,
+    or hosted test tokens in its public docs. Testing is done against the approved
+    sandbox account using arbitrary customer/bank data. No verbatim test values to record.

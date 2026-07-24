@@ -1,0 +1,53 @@
+generated: '2026-07-24'
+method: derived
+status: candidate
+source: openapi/rotessa-openapi.yml
+note: >-
+  Rotessa publishes no official/hosted MCP server (searched docs, npm
+  @modelcontextprotocol, and MCP registries — none found). This is a DERIVED candidate
+  tool list, one tool per OpenAPI operation, to seed an MCP server. Each tool inherits
+  its input contract from the backing operation's parameters + requestBody.
+server:
+  name: rotessa
+  transport: http
+  url: null
+tools:
+  - name: list_customers
+    description: Get all customers on the Rotessa account.
+    source_operation: openapi/rotessa-openapi.yml#listCustomers
+  - name: get_customer
+    description: Get a specific customer by Rotessa ID.
+    source_operation: openapi/rotessa-openapi.yml#getCustomer
+  - name: show_customer_by_custom_identifier
+    description: Get a specific customer by merchant custom identifier.
+    source_operation: openapi/rotessa-openapi.yml#showCustomerByCustomIdentifier
+  - name: create_customer
+    description: Create a customer (bank-account holder).
+    source_operation: openapi/rotessa-openapi.yml#createCustomer
+  - name: update_customer
+    description: Update a customer via PATCH.
+    source_operation: openapi/rotessa-openapi.yml#updateCustomer
+  - name: update_customer_via_post
+    description: Update a customer via POST.
+    source_operation: openapi/rotessa-openapi.yml#updateCustomerViaPost
+  - name: get_transaction_schedule
+    description: Get a specific transaction schedule.
+    source_operation: openapi/rotessa-openapi.yml#getTransactionSchedule
+  - name: create_transaction_schedule
+    description: Create a transaction schedule with a Rotessa customer ID.
+    source_operation: openapi/rotessa-openapi.yml#createTransactionSchedule
+  - name: create_transaction_schedule_with_custom_identifier
+    description: Create a transaction schedule using a custom identifier.
+    source_operation: openapi/rotessa-openapi.yml#createTransactionScheduleWithCustomIdentifier
+  - name: update_transaction_schedule
+    description: Update a transaction schedule via PATCH.
+    source_operation: openapi/rotessa-openapi.yml#updateTransactionSchedule
+  - name: update_transaction_schedule_via_post
+    description: Update a transaction schedule via POST.
+    source_operation: openapi/rotessa-openapi.yml#updateTransactionScheduleViaPost
+  - name: delete_transaction_schedule
+    description: Delete a transaction schedule.
+    source_operation: openapi/rotessa-openapi.yml#deleteTransactionSchedule
+  - name: show_transaction_report
+    description: Retrieve financial transactions and their status for reconciliation.
+    source_operation: openapi/rotessa-openapi.yml#showTransactionReport

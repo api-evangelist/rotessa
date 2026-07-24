@@ -1,0 +1,41 @@
+generated: '2026-07-24'
+method: searched
+source: https://rotessa.com/docs/#financial-transactions
+description: >-
+  PAD/ACH return (decline/chargeback) reason codes for Rotessa financial transactions.
+  These are the values Rotessa surfaces in the `status_reason` field of a
+  FinancialTransaction whose `status` is Declined or Chargeback. They correspond to
+  the underlying Canadian pre-authorized debit / US ACH return reasons.
+envelope_field: status_reason
+appears_on: FinancialTransaction (status = Declined | Chargeback)
+decline_codes:
+  - code: NSF
+    meaning: Non-sufficient funds in the customer's bank account.
+    action: Retry later or contact the customer to fund the account.
+  - code: Payment Stopped/Recalled
+    meaning: The customer or their bank placed a stop-payment / recalled the debit.
+    action: Contact the customer; a new authorization may be required.
+  - code: Edit Reject
+    meaning: The transaction was rejected due to invalid or malformed banking details.
+    action: Correct the customer's bank coordinates and re-create the schedule.
+  - code: Funds Not Cleared
+    meaning: Funds were not cleared by the receiving institution.
+    action: Retry after the customer confirms available funds.
+  - code: Account Closed
+    meaning: The customer's bank account has been closed.
+    action: Obtain updated bank account details from the customer.
+  - code: Invalid/Incorrect Account No.
+    meaning: The bank account number is invalid or incorrect.
+    action: Verify and correct the account number.
+  - code: Account Not Found
+    meaning: The specified bank account could not be found.
+    action: Verify institution/transit/account (CA) or routing/account (US) numbers.
+  - code: Account Frozen
+    meaning: The customer's bank account is frozen.
+    action: Contact the customer; do not retry until resolved.
+  - code: Agreement Revoked
+    meaning: The pre-authorized debit agreement was revoked by the customer.
+    action: A new customer authorization is required before debiting again.
+  - code: No Debit Allowed
+    meaning: The account does not permit debit transactions.
+    action: Obtain an account that permits PAD/ACH debits.

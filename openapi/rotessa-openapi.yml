@@ -1,0 +1,512 @@
+# generated: '2026-07-24'
+# method: generated
+# source: https://rotessa.com/docs/
+# note: Rotessa publishes no machine-readable OpenAPI. This spec is a faithful
+#   generation from the published Slate REST reference at https://rotessa.com/docs/
+#   (operations, parameters, auth, error format, and response codes as documented).
+openapi: 3.1.0
+info:
+  title: Rotessa API
+  version: v1
+  description: >-
+    The Rotessa API provides programmatic access to the core Rotessa platform for
+    collecting recurring payments directly from customers' bank accounts over
+    Canadian pre-authorized debit (PAD) and US ACH rails. It lets you manage
+    customers (bank-account holders), create one-time and recurring transaction
+    schedules against a customer's bank account, and query the resulting financial
+    transactions via the transaction report. Authentication is by API key placed in
+    the Authorization header. Faithful generation from https://rotessa.com/docs/.
+  contact:
+    name: Rotessa Support
+    url: https://support.rotessa.com/
+    email: support@rotessa.com
+  termsOfService: https://rotessa.com/legal/
+servers:
+  - url: https://api.rotessa.com/v1
+    description: Production
+  - url: https://sandbox-api.rotessa.com/v1
+    description: Sandbox / test environment
+security:
+  - apiKeyAuth: []
+tags:
+  - name: Customers
+    description: Create, retrieve, and update the bank-account holders Rotessa withdraws from.
+  - name: Transaction Schedules
+    description: Create and manage one-time and recurring PAD/ACH transaction schedules.
+  - name: Transaction Report
+    description: Retrieve financial transaction records and their status for reconciliation.
+paths:
+  /customers:
+    get:
+      operationId: listCustomers
+      tags: [Customers]
+      summary: Get all customers
+      description: Retrieve the list of customers associated with your Rotessa account.
+      responses:
+        '200':
+          description: A list of customers.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Customer' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '500': { $ref: '#/components/responses/InternalServerError' }
+    post:
+      operationId: createCustomer
+      tags: [Customers]
+      summary: Create a customer
+      description: >-
+        Create a customer (bank-account holder) that Rotessa can withdraw funds from.
+        Provide Canadian bank coordinates (institution_number, transit_number) or US
+        coordinates (routing_number, bank_account_type), plus the account_number.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/CustomerCreate' }
+      responses:
+        '200':
+          description: The created customer.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Customer' }
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '422': { $ref: '#/components/responses/UnprocessableEntity' }
+    patch:
+      operationId: updateCustomer
+      tags: [Customers]
+      summary: Update a customer via PATCH
+      description: Update an existing customer identified by its Rotessa customer id.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/CustomerUpdate' }
+      responses:
+        '200':
+          description: The updated customer.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Customer' }
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '422': { $ref: '#/components/responses/UnprocessableEntity' }
+  /customers/{id}:
+    get:
+      operationId: getCustomer
+      tags: [Customers]
+      summary: Get a specific customer based on Rotessa ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the customer to retrieve.
+          schema: { type: integer }
+      responses:
+        '200':
+          description: The requested customer.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Customer' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '404': { $ref: '#/components/responses/NotFound' }
+  /customers/show_with_custom_identifier:
+    post:
+      operationId: showCustomerByCustomIdentifier
+      tags: [Customers]
+      summary: Get a specific customer based on custom identifier
+      description: Retrieve a customer by the merchant-supplied custom_identifier.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [custom_identifier]
+              properties:
+                custom_identifier:
+                  type: string
+                  description: The custom identifier of the customer to retrieve.
+      responses:
+        '200':
+          description: The requested customer.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Customer' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '404': { $ref: '#/components/responses/NotFound' }
+  /customers/update_via_post:
+    post:
+      operationId: updateCustomerViaPost
+      tags: [Customers]
+      summary: Update a customer via POST
+      description: >-
+        Update an existing customer using POST (for clients that cannot issue PATCH).
+        Identify the customer by its Rotessa id.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/CustomerUpdate' }
+      responses:
+        '200':
+          description: The updated customer.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Customer' }
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '422': { $ref: '#/components/responses/UnprocessableEntity' }
+  /transaction_schedules:
+    post:
+      operationId: createTransactionSchedule
+      tags: [Transaction Schedules]
+      summary: Create a transaction schedule with Rotessa Customer ID
+      description: >-
+        Create a one-time or recurring transaction schedule against a customer's bank
+        account, identifying the customer by Rotessa customer_id.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/TransactionScheduleCreate' }
+      responses:
+        '200':
+          description: The created transaction schedule.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/TransactionSchedule' }
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '422': { $ref: '#/components/responses/UnprocessableEntity' }
+  /transaction_schedules/create_with_custom_identifier:
+    post:
+      operationId: createTransactionScheduleWithCustomIdentifier
+      tags: [Transaction Schedules]
+      summary: Create a transaction schedule with custom identifier
+      description: >-
+        Create a transaction schedule identifying the customer by the merchant-supplied
+        custom_identifier instead of the Rotessa customer_id.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/TransactionScheduleCreateWithCustomIdentifier' }
+      responses:
+        '200':
+          description: The created transaction schedule.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/TransactionSchedule' }
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '422': { $ref: '#/components/responses/UnprocessableEntity' }
+  /transaction_schedules/{id}:
+    get:
+      operationId: getTransactionSchedule
+      tags: [Transaction Schedules]
+      summary: Get a specific transaction schedule
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the transaction schedule to retrieve.
+          schema: { type: integer }
+      responses:
+        '200':
+          description: The requested transaction schedule.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/TransactionSchedule' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '404': { $ref: '#/components/responses/NotFound' }
+    patch:
+      operationId: updateTransactionSchedule
+      tags: [Transaction Schedules]
+      summary: Update a specific transaction schedule with transaction ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the transaction schedule to update.
+          schema: { type: integer }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/TransactionScheduleUpdate' }
+      responses:
+        '200':
+          description: The updated transaction schedule.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/TransactionSchedule' }
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '422': { $ref: '#/components/responses/UnprocessableEntity' }
+    delete:
+      operationId: deleteTransactionSchedule
+      tags: [Transaction Schedules]
+      summary: Delete a specific transaction schedule
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the transaction schedule to delete.
+          schema: { type: integer }
+      responses:
+        '200':
+          description: The transaction schedule was deleted.
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '404': { $ref: '#/components/responses/NotFound' }
+  /transaction_schedules/update_via_post:
+    post:
+      operationId: updateTransactionScheduleViaPost
+      tags: [Transaction Schedules]
+      summary: Update a specific transaction schedule via POST
+      description: Update a transaction schedule using POST (for clients that cannot issue PATCH).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/TransactionScheduleUpdate' }
+      responses:
+        '200':
+          description: The updated transaction schedule.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/TransactionSchedule' }
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '422': { $ref: '#/components/responses/UnprocessableEntity' }
+  /transaction_report:
+    get:
+      operationId: showTransactionReport
+      tags: [Transaction Report]
+      summary: Show transaction report
+      description: >-
+        Retrieve financial transaction records and their status for reconciliation and
+        reporting. Paginated at 1000 transactions per page.
+      parameters:
+        - name: start_date
+          in: query
+          required: true
+          description: The earliest process date (YYYY-MM-DD) of the list of transactions.
+          schema: { type: string, format: date }
+        - name: end_date
+          in: query
+          required: false
+          description: The last process date (YYYY-MM-DD) of the list of transactions. Optional.
+          schema: { type: string, format: date }
+        - name: status
+          in: query
+          required: false
+          description: Filter by the given financial status of the transactions.
+          schema:
+            type: string
+            enum: [All, Pending, Approved, Declined, Chargeback]
+            default: All
+        - name: page
+          in: query
+          required: false
+          description: Page selected based on 1000 transactions per page.
+          schema: { type: integer, minimum: 1 }
+      responses:
+        '200':
+          description: A list of financial transactions.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/FinancialTransaction' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '406': { $ref: '#/components/responses/NotAcceptable' }
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: >-
+        API key placed in the Authorization header in the form
+        `Authorization: Token token="<your_api_key>"`. Keys are created and revoked
+        in the Rotessa admin portal.
+  responses:
+    BadRequest:
+      description: Bad Request - your request includes invalid parameters.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+    Unauthorized:
+      description: Unauthorized - your API key is not valid or is missing.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+    NotFound:
+      description: Not Found - the specified resource could not be found.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+    NotAcceptable:
+      description: Not Acceptable - you requested a format that isn't json.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+    UnprocessableEntity:
+      description: Unprocessable Entity - your request results in invalid data.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+    InternalServerError:
+      description: Internal Server Error - we had a problem with our server. Try again later.
+  schemas:
+    Address:
+      type: object
+      description: Customer address.
+      properties:
+        address_1: { type: string }
+        address_2: { type: string }
+        city: { type: string }
+        province_code: { type: string, description: Province/state code }
+        postal_code: { type: string }
+        country: { type: string }
+    Customer:
+      type: object
+      properties:
+        id: { type: integer, description: ID of the customer }
+        uuid: { type: string, description: UUID of the customer }
+        custom_identifier: { type: string, description: Your own unique customer identifier }
+        name: { type: string, description: Full name of customer }
+        email: { type: string, description: Customer email address }
+        customer_type: { type: string, enum: [Personal, Business] }
+        home_phone: { type: string }
+        phone: { type: string }
+        bank_name: { type: string }
+        institution_number: { type: string, description: Bank institution number for Canadian customers }
+        transit_number: { type: string, description: Bank transit number for Canadian customers }
+        bank_account_type: { type: string, enum: [Savings, Checking], description: For American customers }
+        authorization_type: { type: string, enum: ['In Person', 'Online'] }
+        routing_number: { type: string, description: Bank routing number for American customers }
+        account_number: { type: string, description: Bank account number }
+        address: { $ref: '#/components/schemas/Address' }
+        transaction_schedules:
+          type: array
+          items: { $ref: '#/components/schemas/TransactionSchedule' }
+        financial_transactions:
+          type: array
+          items: { $ref: '#/components/schemas/FinancialTransaction' }
+    CustomerCreate:
+      type: object
+      required: [name, account_number]
+      properties:
+        name: { type: string, description: Full name of customer }
+        custom_identifier: { type: string, description: Your own customer identifier. Must be unique. }
+        email: { type: string }
+        home_phone: { type: string }
+        phone: { type: string }
+        bank_name: { type: string }
+        institution_number: { type: string, description: Bank institution number for Canadian customers }
+        transit_number: { type: string, description: Bank transit number for Canadian customers }
+        bank_account_type: { type: string, enum: [Savings, Checking], description: For American customers }
+        authorization_type: { type: string, enum: ['In Person', 'Online'] }
+        routing_number: { type: string, description: Routing number for American customers }
+        account_number: { type: string, description: Bank account number }
+        address: { $ref: '#/components/schemas/Address' }
+        customer_type: { type: string, enum: [Personal, Business] }
+    CustomerUpdate:
+      allOf:
+        - type: object
+          properties:
+            id: { type: integer, description: The ID of the customer to update }
+        - $ref: '#/components/schemas/CustomerCreate'
+    TransactionSchedule:
+      type: object
+      properties:
+        id: { type: integer, description: ID of the transaction schedule }
+        uuid: { type: string, description: UUID of the transaction schedule }
+        amount: { type: number, description: Amount for schedule }
+        process_date: { type: string, description: The initial date to begin withdrawing funds }
+        frequency: { $ref: '#/components/schemas/Frequency' }
+        installments: { type: integer, description: The number of installments. Leave blank to continue indefinitely. }
+        comment: { type: string, description: A place to enter notes for the transaction schedule }
+        next_process_date: { type: string, description: The next date that funds will be withdrawn }
+        financial_transactions:
+          type: array
+          items: { $ref: '#/components/schemas/FinancialTransaction' }
+    TransactionScheduleCreate:
+      type: object
+      required: [customer_id, amount, process_date, frequency]
+      properties:
+        customer_id: { type: integer, description: ID of customer }
+        amount: { type: number, description: Amount for schedule }
+        process_date: { type: string, description: The initial date to begin withdrawing funds (e.g. November 20, 2016) }
+        frequency: { $ref: '#/components/schemas/Frequency' }
+        installments: { type: integer, description: The number of installments. If excluded, schedule is indefinite. }
+        comment: { type: string, description: Optional comment for schedule }
+    TransactionScheduleCreateWithCustomIdentifier:
+      type: object
+      required: [custom_identifier, amount, process_date, frequency]
+      properties:
+        custom_identifier: { type: string, description: Your own unique custom identifier for the customer }
+        amount: { type: number, description: Amount for schedule }
+        process_date: { type: string, description: The initial date to begin withdrawing funds }
+        frequency: { $ref: '#/components/schemas/Frequency' }
+        installments: { type: integer, description: The number of installments. If excluded, schedule is indefinite. }
+        comment: { type: string, description: Optional comment for schedule }
+    TransactionScheduleUpdate:
+      type: object
+      required: [id]
+      properties:
+        id: { type: integer, description: The ID of the transaction schedule to update }
+        amount: { type: number, description: Amount for the schedule }
+        comment: { type: string, description: Optional comment for schedule }
+    Frequency:
+      type: string
+      description: Frequency of the transaction schedule.
+      enum:
+        - Once
+        - Weekly
+        - Every Other Week
+        - Monthly
+        - Every Other Month
+        - Quarterly
+        - Semi-Annually
+        - Yearly
+    FinancialTransaction:
+      type: object
+      properties:
+        id: { type: integer, description: ID of the financial transaction }
+        uuid: { type: string, description: UUID of the financial transaction }
+        amount: { type: number, description: Transaction amount }
+        process_date: { type: string, description: The scheduled process date of the transaction }
+        status:
+          type: string
+          description: The current status of the transaction.
+          enum: [Future, Pending, Approved, Declined, Chargeback]
+        status_reason:
+          type: string
+          description: The reason for the Declined or Chargeback status of a transaction.
+        transaction_schedule_id: { type: integer, description: ID of the transaction schedule that created this transaction }
+        bank_name: { type: string }
+        institution_number: { type: string }
+        transit_number: { type: string }
+        account_number: { type: string }
+    ErrorEnvelope:
+      type: object
+      description: >-
+        Rotessa error envelope. Errors are returned as a list of objects each carrying
+        a machine-readable error_code and a human-readable error_message.
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              error_code: { type: string, example: installments_required }
+              error_message: { type: string, example: Installments value must be at least 1. }

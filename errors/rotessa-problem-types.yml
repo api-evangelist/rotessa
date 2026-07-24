@@ -1,0 +1,38 @@
+generated: '2026-07-24'
+method: derived
+source: openapi/rotessa-openapi.yml
+docs: https://rotessa.com/docs/#errors
+format: custom
+envelope: '{ "errors": [ { "error_code": string, "error_message": string } ] }'
+note: >-
+  Rotessa does not use RFC 9457 problem+json. Errors are returned as a list under an
+  `errors` key, each carrying a machine-readable `error_code` and human `error_message`.
+  HTTP response codes are derived from the docs "HTTP RESPONSE CODES" table; example
+  error_codes are the ones published verbatim in the docs.
+http_responses:
+  - status: 400
+    title: Bad Request
+    meaning: Your request includes invalid parameters.
+  - status: 401
+    title: Unauthorized
+    meaning: Your API key is not valid or is missing.
+  - status: 404
+    title: Not Found
+    meaning: The specified resource could not be found.
+  - status: 406
+    title: Not Acceptable
+    meaning: You requested a format that isn't json.
+  - status: 422
+    title: Unprocessable Entity
+    meaning: Your request results in invalid data.
+  - status: 500
+    title: Internal Server Error
+    meaning: We had a problem with our server. Try again later.
+  - status: 503
+    title: Service Unavailable
+    meaning: We're temporarily offline for maintenance. Please try again later.
+error_codes:
+  - code: installments_required
+    message: Installments value must be at least 1.
+  - code: process_date_timing
+    message: Process date must be at least 2 business days in the future.

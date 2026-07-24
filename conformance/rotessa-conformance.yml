@@ -1,0 +1,39 @@
+generated: '2026-07-24'
+method: derived
+source: openapi/rotessa-openapi.yml
+note: >-
+  Cross-cutting standards conformance derived from the generated OpenAPI and the
+  published docs. Rotessa moves money over Canadian PAD and US ACH rails, but exposes
+  no OAuth/OIDC surface and does not use RFC 9457 problem+json.
+standards:
+  - id: openapi-3.1
+    conforms: true
+    evidence: Generated OpenAPI 3.1.0 from the published REST reference.
+  - id: oauth2
+    conforms: false
+    evidence: API-key auth only; no oauth2 securityScheme.
+  - id: oidc
+    conforms: false
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: 'Custom error envelope { errors: [ { error_code, error_message } ] }, not application/problem+json.'
+  - id: json-api
+    conforms: false
+  - id: pagination
+    conforms: true
+    evidence: transaction_report uses page-number pagination (1000/page).
+  - id: idempotency
+    conforms: false
+    evidence: No idempotency-key contract documented.
+  - id: pad-nacha-returns
+    conforms: true
+    evidence: status_reason values map to Canadian PAD / US ACH return reasons (see errors/rotessa-decline-codes.yml).
+  - id: fhir-r4
+    conforms: false
+  - id: fapi
+    conforms: false
+compliance_program:
+  published: false
+  notes: >-
+    No public trust center, SOC 2 / ISO 27001 / PCI DSS certification page, or bug
+    bounty was found (probed). No Compliance pointer wired.

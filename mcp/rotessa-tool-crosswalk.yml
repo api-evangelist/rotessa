@@ -1,0 +1,36 @@
+generated: '2026-07-24'
+method: derived
+source: mcp/rotessa-mcp.yml + openapi/rotessa-openapi.yml
+note: >-
+  1:1 crosswalk. The MCP tool list is a derived candidate generated one-per-operation
+  from the OpenAPI, so every tool binds cleanly to exactly one backing operationId
+  (confidence high) and there are no MCP-only or REST-only divergences. If Rotessa
+  later ships a real MCP server this crosswalk should be re-derived against it.
+surfaces:
+  openapi: openapi/rotessa-openapi.yml
+  graphql: null
+  mcp:
+    url: null
+    status: candidate (derived; no live tools/list to introspect)
+crosswalk:
+  - { tool: list_customers, category: customers, rest: [listCustomers], binding: rest, confidence: high }
+  - { tool: get_customer, category: customers, rest: [getCustomer], binding: rest, confidence: high }
+  - { tool: show_customer_by_custom_identifier, category: customers, rest: [showCustomerByCustomIdentifier], binding: rest, confidence: high }
+  - { tool: create_customer, category: customers, rest: [createCustomer], binding: rest, confidence: high }
+  - { tool: update_customer, category: customers, rest: [updateCustomer], binding: rest, confidence: high }
+  - { tool: update_customer_via_post, category: customers, rest: [updateCustomerViaPost], binding: rest, confidence: high }
+  - { tool: get_transaction_schedule, category: schedules, rest: [getTransactionSchedule], binding: rest, confidence: high }
+  - { tool: create_transaction_schedule, category: schedules, rest: [createTransactionSchedule], binding: rest, confidence: high }
+  - { tool: create_transaction_schedule_with_custom_identifier, category: schedules, rest: [createTransactionScheduleWithCustomIdentifier], binding: rest, confidence: high }
+  - { tool: update_transaction_schedule, category: schedules, rest: [updateTransactionSchedule], binding: rest, confidence: high }
+  - { tool: update_transaction_schedule_via_post, category: schedules, rest: [updateTransactionScheduleViaPost], binding: rest, confidence: high }
+  - { tool: delete_transaction_schedule, category: schedules, rest: [deleteTransactionSchedule], binding: rest, confidence: high }
+  - { tool: show_transaction_report, category: reporting, rest: [showTransactionReport], binding: rest, confidence: high }
+mcp_only: []
+rest_only: []
+coverage:
+  tools_named: 13
+  tools_bound: 13
+  mcp_only: 0
+  rest_ops_total: 13
+  rest_ops_with_tool: 13

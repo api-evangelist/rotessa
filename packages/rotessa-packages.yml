@@ -1,0 +1,27 @@
+generated: '2026-07-24'
+method: searched
+source: >-
+  Searched RubyGems, NuGet/GitHub, npm, PyPI, and the Rotessa GitHub org
+  (github.com/Rotessa) for first-party client libraries.
+note: >-
+  Rotessa publishes NO official/first-party SDK. Its GitHub org contains only
+  `api-docs-client-old` (a 2022 Slate static-docs template, not a client) and
+  `motor-admin-rails` (a fork of an admin tool). The libraries below are
+  community/third-party wrappers, marked official:false. No `SDKs` pointer is wired
+  because no first-party client library exists.
+packages:
+  - language: ruby
+    registry: rubygems
+    name: rotessa-rb
+    url: https://rubygems.org/gems/rotessa-rb
+    install: gem install rotessa-rb
+    official: false
+    note: Community Ruby wrapper (v0.1.0, 2023). Requires Ruby >= 3.1.
+  - language: csharp
+    registry: github
+    name: apereiratl/Rotessa
+    url: https://github.com/apereiratl/Rotessa
+    install: null
+    official: false
+    note: Community typed .NET client for the Rotessa REST APIs.
+official_sdks: []

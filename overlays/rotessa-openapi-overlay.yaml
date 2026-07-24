@@ -1,0 +1,21 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Rotessa API
+  version: 1.0.0
+extends: openapi/rotessa-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-enriched: '2026-07-24'
+      x-api-rails: [PAD, ACH]
+      x-error-envelope: '{ "errors": [ { "error_code": string, "error_message": string } ] }'
+      x-auth-header-format: 'Token token="<api_key>"'
+  - target: $.paths['/transaction_report'].get
+    update:
+      x-pagination:
+        style: page-number
+        param: page
+        page_size: 1000
+  - target: $.components.schemas.FinancialTransaction.properties.status_reason
+    update:
+      x-decline-codes: errors/rotessa-decline-codes.yml

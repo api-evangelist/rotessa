@@ -1,0 +1,24 @@
+generated: '2026-07-24'
+method: searched
+source: https://rotessa.com/docs/
+versioning:
+  scheme: uri-path
+  current: v1
+  docs: https://rotessa.com/docs/#introduction
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No published deprecation policy or RFC 8594 Sunset/Deprecation header support found.
+sla:
+  url: null
+  uptime_target: null
+  notes: No published SLA or uptime commitment found.
+status_page:
+  url: null
+  notes: >-
+    No status page found. status.rotessa.com does not resolve; the marketing site
+    returns a soft-404 for common status paths.
+deprecated_operations: []
+notes: >-
+  Rotessa exposes a single stable v1 REST API. No changelog, roadmap, deprecation
+  policy, SLA, or status page is published as of this round (all probed and absent).

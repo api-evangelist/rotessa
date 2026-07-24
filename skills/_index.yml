@@ -1,0 +1,12 @@
+generated: '2026-07-24'
+method: generated
+source: openapi/rotessa-openapi.yml + conventions/ + errors/
+skills:
+  - file: rotessa-onboard-customer-and-schedule.md
+    name: Onboard a customer and start a recurring debit
+    api: openapi/rotessa-openapi.yml
+    operations: [createCustomer, createTransactionSchedule]
+  - file: rotessa-reconcile-transactions.md
+    name: Reconcile transactions and handle declines
+    api: openapi/rotessa-openapi.yml
+    operations: [showTransactionReport, getTransactionSchedule]

@@ -31,7 +31,7 @@ tags:
 - Money Movement
 - Open Banking
 created: '2026-07-24'
-modified: '2026-07-24'
+modified: '2026-07-25'
 specificationVersion: '0.19'
 apis:
 - aid: rotessa:rotessa-customers-api
@@ -88,6 +88,12 @@ apis:
   - type: APIReference
     url: https://rotessa.com/docs/#transaction-report
 common:
+- type: AgenticAccess
+  url: agentic-access/rotessa-agentic-access.yml
+- type: DomainSecurity
+  url: security/rotessa-domain-security.yml
+- type: Authentication
+  url: authentication/rotessa-authentication.yml
 - type: Website
   url: https://rotessa.com/
 - type: DeveloperPortal
@@ -116,6 +122,34 @@ common:
   url: https://rotessa.com/legal/
 - type: PrivacyPolicy
   url: https://rotessa.com/legal/privacy/
+- type: OpenAPI
+  url: openapi/rotessa-openapi.yml
+- type: LLMsTxt
+  url: llms/rotessa-llms.txt
+- type: Conventions
+  url: conventions/rotessa-conventions.yml
+- type: ErrorCatalog
+  url: errors/rotessa-problem-types.yml
+- type: DeclineCodes
+  url: errors/rotessa-decline-codes.yml
+- type: Lifecycle
+  url: lifecycle/rotessa-lifecycle.yml
+- type: Sandbox
+  url: sandbox/rotessa-sandbox.yml
+- type: Conformance
+  url: conformance/rotessa-conformance.yml
+- type: DataModel
+  url: data-model/rotessa-data-model.yml
+- type: Packages
+  url: packages/rotessa-packages.yml
+- type: MCPServer
+  url: mcp/rotessa-mcp.yml
+- type: ToolCrosswalk
+  url: mcp/rotessa-tool-crosswalk.yml
+- type: Overlay
+  url: overlays/rotessa-openapi-overlay.yaml
+- type: AgentSkill
+  url: skills/_index.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
