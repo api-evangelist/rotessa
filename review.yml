@@ -1,0 +1,105 @@
+aid: rotessa
+name: Rotessa
+review:
+  question: Does Rotessa publish a real self-serve public API with a downloadable machine-readable specification?
+  answer: partial
+  date: '2026-07-24'
+  reviewer: API Evangelist
+findings:
+  summary: |
+    Rotessa exposes a genuine, self-serve public REST API for bank-account
+    (pre-authorized debit in Canada, ACH in the United States) recurring
+    payments, but does NOT publish a downloadable machine-readable API
+    specification. The developer portal at
+    https://rotessa.com/our-customers/developers/ (HTTP 200) links to a
+    single-page Slate API reference at https://rotessa.com/docs/ (HTTP 200).
+    The Rotessa GitHub org (https://github.com/Rotessa) contains the Slate
+    docs source (api-docs-client-old) and an admin app (motor-admin-rails)
+    but no OpenAPI/Swagger artifact. A free sandbox is offered at
+    sandbox.rotessa.com (base URL https://sandbox-api.rotessa.com/v1) with
+    signup at https://sandbox.rotessa.com/join. No webhooks/events, AsyncAPI,
+    GraphQL, gRPC, or public Postman collection are documented.
+  homeMarket: Canada (Winnipeg, Manitoba); also operates in the United States over ACH
+  marketSeamNotes: |
+    Rotessa is an API-native SMB money-movement fintech in the thin-but-real
+    account-to-account layer of Canada's payments market, alongside VoPay,
+    Plooto, and Helcim. It moves money over existing bank rails (Canadian
+    pre-authorized debit / US ACH) rather than any live open-banking payment
+    mandate — Canada's Consumer-Driven Banking is legislated but not
+    operational and Payments Canada's ISO 20022 Real-Time Rail is not yet
+    live. Rotessa's legal hub confirms a Flinks end-user agreement, meaning
+    bank-account access/verification runs through the Flinks aggregator,
+    consistent with the aggregator-driven Canadian access seam.
+  authModel: |
+    API key. The key is issued in the Rotessa admin portal and passed on every
+    request in an HTTP header as `Authorization: Token token=<api_key>`. No
+    OAuth2, OpenID Connect, or mTLS is documented; no
+    /.well-known/openid-configuration or /.well-known/oauth-authorization-server
+    is served. Invalid/missing keys return an authentication error.
+  downloadableSpecs:
+    count: 0
+    note: |
+      No OpenAPI/Swagger was found. Candidate paths (rotessa.com/docs/openapi.json,
+      rotessa.com/docs/swagger.json, rotessa.com/api/openapi.json,
+      api.rotessa.com/openapi.json, api.rotessa.com/swagger.json) all returned
+      either HTTP 404 or a soft-404 HTML page (Content-Type text/html,
+      <!DOCTYPE html>) — none parsed as a spec. The API is documented only as
+      human-readable Slate HTML.
+  webhooks:
+    documented: false
+    note: No webhook or event catalog is documented; no AsyncAPI is published.
+  postman:
+    documented: false
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.rotessa.com/v1
+      documented: true
+    - protocol: REST
+      scheme: https
+      baseURL: https://sandbox-api.rotessa.com/v1
+      documented: true
+      note: Free sandbox environment; signup at https://sandbox.rotessa.com/join
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket, GraphQL, or gRPC surface is documented.
+  endpointsConfirmedRest:
+    - GET    https://api.rotessa.com/v1/customers
+    - POST   https://api.rotessa.com/v1/customers
+    - PATCH  https://api.rotessa.com/v1/customers
+    - GET    https://api.rotessa.com/v1/customers/<ID>
+    - POST   https://api.rotessa.com/v1/customers/show_with_custom_identifier
+    - POST   https://api.rotessa.com/v1/customers/update_via_post
+    - POST   https://api.rotessa.com/v1/transaction_schedules
+    - POST   https://api.rotessa.com/v1/transaction_schedules/create_with_custom_identifier
+    - GET    https://api.rotessa.com/v1/transaction_schedules/<ID>
+    - PATCH  https://api.rotessa.com/v1/transaction_schedules/<ID>
+    - POST   https://api.rotessa.com/v1/transaction_schedules/update_via_post
+    - DELETE https://api.rotessa.com/v1/transaction_schedules/<ID>
+    - GET    https://api.rotessa.com/v1/transaction_report
+sources:
+  - url: https://rotessa.com/our-customers/developers/
+    type: DeveloperPortal
+    status: 200
+    note: Developer landing page ("Unlock the Power of Payments with the Rotessa API").
+  - url: https://rotessa.com/docs/
+    type: APIReference
+    status: 200
+    note: Single-page Slate API reference; endpoints, auth, and errors documented here.
+  - url: https://support.rotessa.com/rotessas-sandbox-and-api
+    type: GettingStarted
+    status: 200
+    note: Explains sandbox access and API keys.
+  - url: https://github.com/Rotessa
+    type: GitHubOrganization
+    status: 200
+    note: Repos api-docs-client-old (Slate docs source) and motor-admin-rails; no OpenAPI artifact.
+  - url: https://rotessa.com/legal/
+    type: TermsOfService
+    status: 200
+    note: Legal hub; includes Canadian and US client service agreements, PAD/ACH customer terms, and a Flinks end-user agreement.
+  - url: https://api.rotessa.com/openapi.json
+    type: OpenAPI
+    status: 404
+    note: No downloadable OpenAPI at the API host.

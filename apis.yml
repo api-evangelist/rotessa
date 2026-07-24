@@ -1,0 +1,121 @@
+aid: rotessa
+url: https://raw.githubusercontent.com/api-evangelist/rotessa/refs/heads/main/apis.yml
+name: Rotessa
+kind: company
+description: >-
+  Rotessa is a Winnipeg, Manitoba-based fintech that helps small and mid-sized
+  North American businesses collect recurring payments directly from their
+  customers' bank accounts. In Canada it moves money over the pre-authorized
+  debit (PAD) rails and in the United States over ACH, positioning itself as a
+  low-cost, bank-account-native alternative to card processing for invoices,
+  memberships, subscriptions, tuition, and rent. Rotessa exposes a genuine
+  public REST API (https://api.rotessa.com/v1) that lets platforms and businesses
+  programmatically create customers, verify bank details (including via the
+  Flinks aggregator), and schedule one-time or recurring transactions, backed by
+  a free sandbox (sandbox.rotessa.com) and API-key authentication. As an
+  API-native SMB money-movement fintech, it sits in the thin-but-real
+  account-to-account layer of Canada's payments market, alongside peers like
+  VoPay, Plooto, and Helcim, operating through bank rails and aggregators rather
+  than any live open-banking payment mandate.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Payments
+- Canada
+- Pre-Authorized Debit
+- ACH
+- Account-to-Account
+- Bank Payments
+- Recurring Payments
+- Subscriptions
+- Direct Debit
+- Money Movement
+- Open Banking
+created: '2026-07-24'
+modified: '2026-07-24'
+specificationVersion: '0.19'
+apis:
+- aid: rotessa:rotessa-customers-api
+  name: Rotessa Customers API
+  description: >-
+    Create, retrieve, and update the customers (bank-account holders) that
+    Rotessa withdraws recurring payments from. Supports lookup by Rotessa
+    customer ID or by a merchant-supplied custom identifier, and PATCH or POST
+    update flows. Base URL https://api.rotessa.com/v1; API-key authentication.
+  humanURL: https://rotessa.com/docs/#customers
+  baseURL: https://api.rotessa.com/v1
+  tags:
+  - Customers
+  - Bank Accounts
+  properties:
+  - type: Documentation
+    url: https://rotessa.com/docs/#customers
+  - type: APIReference
+    url: https://rotessa.com/docs/#customers
+- aid: rotessa:rotessa-transaction-schedules-api
+  name: Rotessa Transaction Schedules API
+  description: >-
+    Create and manage one-time and recurring pre-authorized debit / ACH
+    transaction schedules against a customer's bank account, including schedule
+    frequency, creation by Rotessa customer ID or custom identifier, PATCH/POST
+    updates, and deletion. Base URL https://api.rotessa.com/v1; API-key
+    authentication.
+  humanURL: https://rotessa.com/docs/#transaction-schedules
+  baseURL: https://api.rotessa.com/v1
+  tags:
+  - Transaction Schedules
+  - Recurring Payments
+  - Pre-Authorized Debit
+  properties:
+  - type: Documentation
+    url: https://rotessa.com/docs/#transaction-schedules
+  - type: APIReference
+    url: https://rotessa.com/docs/#transaction-schedules
+- aid: rotessa:rotessa-transaction-report-api
+  name: Rotessa Transaction Report API
+  description: >-
+    Retrieve financial transaction records and their status (and status
+    reasons) for reconciliation and reporting via the transaction report
+    endpoint. Base URL https://api.rotessa.com/v1; API-key authentication.
+  humanURL: https://rotessa.com/docs/#transaction-report
+  baseURL: https://api.rotessa.com/v1
+  tags:
+  - Transactions
+  - Reporting
+  - Reconciliation
+  properties:
+  - type: Documentation
+    url: https://rotessa.com/docs/#financial-transactions
+  - type: APIReference
+    url: https://rotessa.com/docs/#transaction-report
+common:
+- type: Website
+  url: https://rotessa.com/
+- type: DeveloperPortal
+  url: https://rotessa.com/our-customers/developers/
+- type: Documentation
+  url: https://rotessa.com/docs/
+- type: APIReference
+  url: https://rotessa.com/docs/
+- type: GettingStarted
+  url: https://support.rotessa.com/rotessas-sandbox-and-api
+- type: GitHubOrganization
+  url: https://github.com/Rotessa
+- type: LinkedIn
+  url: https://www.linkedin.com/company/rotessa
+- type: Pricing
+  url: https://rotessa.com/pricing/
+- type: Blog
+  url: https://rotessa.com/blog/
+- type: Support
+  url: https://support.rotessa.com/
+- type: SignUp
+  url: https://rotessa.com/sign-up/
+- type: Login
+  url: https://app.rotessa.com/login
+- type: TermsOfService
+  url: https://rotessa.com/legal/
+- type: PrivacyPolicy
+  url: https://rotessa.com/legal/privacy/
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
