@@ -37,10 +37,9 @@ apis:
 - aid: rotessa:rotessa-customers-api
   name: Rotessa Customers API
   description: >-
-    Create, retrieve, and update the customers (bank-account holders) that
-    Rotessa withdraws recurring payments from. Supports lookup by Rotessa
-    customer ID or by a merchant-supplied custom identifier, and PATCH or POST
-    update flows. Base URL https://api.rotessa.com/v1; API-key authentication.
+    Create, retrieve, and update the customers (bank-account holders) that Rotessa withdraws recurring
+    payments from. Supports lookup by Rotessa customer ID or by a merchant-supplied custom identifier,
+    and PATCH or POST update flows. Base URL https://api.rotessa.com/v1; API-key authentication.
   humanURL: https://rotessa.com/docs/#customers
   baseURL: https://api.rotessa.com/v1
   tags:
@@ -54,11 +53,9 @@ apis:
 - aid: rotessa:rotessa-transaction-schedules-api
   name: Rotessa Transaction Schedules API
   description: >-
-    Create and manage one-time and recurring pre-authorized debit / ACH
-    transaction schedules against a customer's bank account, including schedule
-    frequency, creation by Rotessa customer ID or custom identifier, PATCH/POST
-    updates, and deletion. Base URL https://api.rotessa.com/v1; API-key
-    authentication.
+    Create and manage one-time and recurring pre-authorized debit / ACH transaction schedules against
+    a customer's bank account, including schedule frequency, creation by Rotessa customer ID or custom
+    identifier, PATCH/POST updates, and deletion. Base URL https://api.rotessa.com/v1; API-key authentication.
   humanURL: https://rotessa.com/docs/#transaction-schedules
   baseURL: https://api.rotessa.com/v1
   tags:
@@ -73,9 +70,8 @@ apis:
 - aid: rotessa:rotessa-transaction-report-api
   name: Rotessa Transaction Report API
   description: >-
-    Retrieve financial transaction records and their status (and status
-    reasons) for reconciliation and reporting via the transaction report
-    endpoint. Base URL https://api.rotessa.com/v1; API-key authentication.
+    Retrieve financial transaction records and their status (and status reasons) for reconciliation and
+    reporting via the transaction report endpoint. Base URL https://api.rotessa.com/v1; API-key authentication.
   humanURL: https://rotessa.com/docs/#transaction-report
   baseURL: https://api.rotessa.com/v1
   tags:
@@ -87,6 +83,14 @@ apis:
     url: https://rotessa.com/docs/#financial-transactions
   - type: APIReference
     url: https://rotessa.com/docs/#transaction-report
+- aid: rotessa:rotessa-openapi
+  name: Rotessa API
+  description: Rotessa API from Rotessa — 9 path(s) described in OpenAPI.
+  humanURL: https://rotessa.com/docs/#customers
+  baseURL: https://api.rotessa.com/v1
+  properties:
+  - type: OpenAPI
+    url: openapi/rotessa-openapi.yml
 common:
 - type: AgenticAccess
   url: agentic-access/rotessa-agentic-access.yml
