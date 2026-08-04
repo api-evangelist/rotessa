@@ -11,7 +11,8 @@ surfaces:
   graphql: null
   mcp:
     url: null
-    status: candidate (derived; no live tools/list to introspect)
+    status: candidate
+    status_raw: candidate
 crosswalk:
   - { tool: list_customers, category: customers, rest: [listCustomers], binding: rest, confidence: high }
   - { tool: get_customer, category: customers, rest: [getCustomer], binding: rest, confidence: high }
