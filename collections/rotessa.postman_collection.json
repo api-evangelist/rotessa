@@ -1,0 +1,3299 @@
+{
+  "item": [
+    {
+      "id": "bdb4b0ca-2d09-4363-a1b2-c6e7fd3981e4",
+      "name": "Customers",
+      "description": {
+        "content": "Create, retrieve, and update the bank-account holders Rotessa withdraws from.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "181fbc35-176d-4386-8c77-1dda8d542f8c",
+          "name": "Get all customers",
+          "request": {
+            "name": "Get all customers",
+            "description": {
+              "content": "Retrieve the list of customers associated with your Rotessa account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "faf59ae4-b660-4f36-8afd-df84c178b4be",
+              "name": "A list of customers.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 4411,\n    \"uuid\": \"string\",\n    \"custom_identifier\": \"string\",\n    \"name\": \"string\",\n    \"email\": \"string\",\n    \"customer_type\": \"Personal\",\n    \"home_phone\": \"string\",\n    \"phone\": \"string\",\n    \"bank_name\": \"string\",\n    \"institution_number\": \"string\",\n    \"transit_number\": \"string\",\n    \"bank_account_type\": \"Checking\",\n    \"authorization_type\": \"In Person\",\n    \"routing_number\": \"string\",\n    \"account_number\": \"string\",\n    \"address\": {\n      \"address_1\": \"string\",\n      \"address_2\": \"string\",\n      \"city\": \"string\",\n      \"province_code\": \"string\",\n      \"postal_code\": \"string\",\n      \"country\": \"string\"\n    },\n    \"transaction_schedules\": [\n      {\n        \"id\": 8769,\n        \"uuid\": \"string\",\n        \"amount\": 2929.852128807229,\n        \"process_date\": \"string\",\n        \"frequency\": \"Weekly\",\n        \"installments\": 2613,\n        \"comment\": \"string\",\n        \"next_process_date\": \"string\",\n        \"financial_transactions\": [\n          {\n            \"id\": 2196,\n            \"uuid\": \"string\",\n            \"amount\": 1938.7077156202258,\n            \"process_date\": \"string\",\n            \"status\": \"Chargeback\",\n            \"status_reason\": \"string\",\n            \"transaction_schedule_id\": 7007,\n            \"bank_name\": \"string\",\n            \"institution_number\": \"string\",\n            \"transit_number\": \"string\",\n            \"account_number\": \"string\"\n          },\n          {\n            \"id\": 1448,\n            \"uuid\": \"string\",\n            \"amount\": 1681.339443396458,\n            \"process_date\": \"string\",\n            \"status\": \"Chargeback\",\n            \"status_reason\": \"string\",\n            \"transaction_schedule_id\": 2993,\n            \"bank_name\": \"string\",\n            \"institution_number\": \"string\",\n            \"transit_number\": \"string\",\n            \"account_number\": \"string\"\n          }\n        ]\n      },\n      {\n        \"id\": 3245,\n        \"uuid\": \"string\",\n        \"amount\": 2543.8250219728798,\n        \"process_date\": \"string\",\n        \"frequency\": \"Semi-Annually\",\n        \"installments\": 5532,\n        \"comment\": \"string\",\n        \"next_process_date\": \"string\",\n        \"financial_transactions\": [\n          {\n            \"id\": 7298,\n            \"uuid\": \"string\",\n            \"amount\": 6258.807059829927,\n            \"process_date\": \"string\",\n            \"status\": \"Pending\",\n            \"status_reason\": \"string\",\n            \"transaction_schedule_id\": 8631,\n            \"bank_name\": \"string\",\n            \"institution_number\": \"string\",\n            \"transit_number\": \"string\",\n            \"account_number\": \"string\"\n          },\n          {\n            \"id\": 5923,\n            \"uuid\": \"string\",\n            \"amount\": 3709.9222440770764,\n            \"process_date\": \"string\",\n            \"status\": \"Declined\",\n            \"status_reason\": \"string\",\n            \"transaction_schedule_id\": 604,\n            \"bank_name\": \"string\",\n            \"institution_number\": \"string\",\n            \"transit_number\": \"string\",\n            \"account_number\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"financial_transactions\": [\n      {\n        \"id\": 8432,\n        \"uuid\": \"string\",\n        \"amount\": 2658.9888503655134,\n        \"process_date\": \"string\",\n        \"status\": \"Declined\",\n        \"status_reason\": \"string\",\n        \"transaction_schedule_id\": 9915,\n        \"bank_name\": \"string\",\n        \"institution_number\": \"string\",\n        \"transit_number\": \"string\",\n        \"account_number\": \"string\"\n      },\n      {\n        \"id\": 6080,\n        \"uuid\": \"string\",\n        \"amount\": 4156.548948355696,\n        \"process_date\": \"string\",\n        \"status\": \"Declined\",\n        \"status_reason\": \"string\",\n        \"transaction_schedule_id\": 8007,\n        \"bank_name\": \"string\",\n        \"institution_number\": \"string\",\n        \"transit_number\": \"string\",\n        \"account_number\": \"string\"\n      }\n    ]\n  },\n  {\n    \"id\": 2774,\n    \"uuid\": \"string\",\n    \"custom_identifier\": \"string\",\n    \"name\": \"string\",\n    \"email\": \"string\",\n    \"customer_type\": \"Personal\",\n    \"home_phone\": \"string\",\n    \"phone\": \"string\",\n    \"bank_name\": \"string\",\n    \"institution_number\": \"string\",\n    \"transit_number\": \"string\",\n    \"bank_account_type\": \"Savings\",\n    \"authorization_type\": \"Online\",\n    \"routing_number\": \"string\",\n    \"account_number\": \"string\",\n    \"address\": {\n      \"address_1\": \"string\",\n      \"address_2\": \"string\",\n      \"city\": \"string\",\n      \"province_code\": \"string\",\n      \"postal_code\": \"string\",\n      \"country\": \"string\"\n    },\n    \"transaction_schedules\": [\n      {\n        \"id\": 308,\n        \"uuid\": \"string\",\n        \"amount\": 3847.5847432929986,\n        \"process_date\": \"string\",\n        \"frequency\": \"Monthly\",\n        \"installments\": 5426,\n        \"comment\": \"string\",\n        \"next_process_date\": \"string\",\n        \"financial_transactions\": [\n          {\n            \"id\": 3020,\n            \"uuid\": \"string\",\n            \"amount\": 6711.893573829179,\n            \"process_date\": \"string\",\n            \"status\": \"Future\",\n            \"status_reason\": \"string\",\n            \"transaction_schedule_id\": 7691,\n            \"bank_name\": \"string\",\n            \"institution_number\": \"string\",\n            \"transit_number\": \"string\",\n            \"account_number\": \"string\"\n          },\n          {\n            \"id\": 9900,\n            \"uuid\": \"string\",\n            \"amount\": 8383.275138768375,\n            \"process_date\": \"string\",\n            \"status\": \"Chargeback\",\n            \"status_reason\": \"string\",\n            \"transaction_schedule_id\": 9343,\n            \"bank_name\": \"string\",\n            \"institution_number\": \"string\",\n            \"transit_number\": \"string\",\n            \"account_number\": \"string\"\n          }\n        ]\n      },\n      {\n        \"id\": 4063,\n        \"uuid\": \"string\",\n        \"amount\": 4925.33956691788,\n        \"process_date\": \"string\",\n        \"frequency\": \"Monthly\",\n        \"installments\": 5336,\n        \"comment\": \"string\",\n        \"next_process_date\": \"string\",\n        \"financial_transactions\": [\n          {\n            \"id\": 4109,\n            \"uuid\": \"string\",\n            \"amount\": 4092.9020802500536,\n            \"process_date\": \"string\",\n            \"status\": \"Chargeback\",\n            \"status_reason\": \"string\",\n            \"transaction_schedule_id\": 7644,\n            \"bank_name\": \"string\",\n            \"institution_number\": \"string\",\n            \"transit_number\": \"string\",\n            \"account_number\": \"string\"\n          },\n          {\n            \"id\": 2767,\n            \"uuid\": \"string\",\n            \"amount\": 7006.248758818372,\n            \"process_date\": \"string\",\n            \"status\": \"Chargeback\",\n            \"status_reason\": \"string\",\n            \"transaction_schedule_id\": 5345,\n            \"bank_name\": \"string\",\n            \"institution_number\": \"string\",\n            \"transit_number\": \"string\",\n            \"account_number\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"financial_transactions\": [\n      {\n        \"id\": 547,\n        \"uuid\": \"string\",\n        \"amount\": 2505.728398099698,\n        \"process_date\": \"string\",\n        \"status\": \"Chargeback\",\n        \"status_reason\": \"string\",\n        \"transaction_schedule_id\": 7723,\n        \"bank_name\": \"string\",\n        \"institution_number\": \"string\",\n        \"transit_number\": \"string\",\n        \"account_number\": \"string\"\n      },\n      {\n        \"id\": 9431,\n        \"uuid\": \"string\",\n        \"amount\": 1872.9162202785976,\n        \"process_date\": \"string\",\n        \"status\": \"Declined\",\n        \"status_reason\": \"string\",\n        \"transaction_schedule_id\": 7761,\n        \"bank_name\": \"string\",\n        \"institution_number\": \"string\",\n        \"transit_number\": \"string\",\n        \"account_number\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "38456c86-cbce-43cb-abbf-5e51506dd632",
+              "name": "Unauthorized - your API key is not valid or is missing.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4fe426ac-e343-4a10-9870-d1e8078e2fbd",
+              "name": "Internal Server Error - we had a problem with our server. Try again later.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "013e4edc-feab-4aeb-912c-8bd12a9b9699",
+          "name": "Create a customer",
+          "request": {
+            "name": "Create a customer",
+            "description": {
+              "content": "Create a customer (bank-account holder) that Rotessa can withdraw funds from. Provide Canadian bank coordinates (institution_number, transit_number) or US coordinates (routing_number, bank_account_type), plus the account_number.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"account_number\": \"<string>\",\n  \"custom_identifier\": \"<string>\",\n  \"email\": \"<string>\",\n  \"home_phone\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"bank_name\": \"<string>\",\n  \"institution_number\": \"<string>\",\n  \"transit_number\": \"<string>\",\n  \"bank_account_type\": \"<string>\",\n  \"authorization_type\": \"<string>\",\n  \"routing_number\": \"<string>\",\n  \"address\": {\n    \"address_1\": \"<string>\",\n    \"address_2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"province_code\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"customer_type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7b89aac1-9871-40cc-827a-5e8a46216658",
+              "name": "The created customer.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"account_number\": \"<string>\",\n  \"custom_identifier\": \"<string>\",\n  \"email\": \"<string>\",\n  \"home_phone\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"bank_name\": \"<string>\",\n  \"institution_number\": \"<string>\",\n  \"transit_number\": \"<string>\",\n  \"bank_account_type\": \"<string>\",\n  \"authorization_type\": \"<string>\",\n  \"routing_number\": \"<string>\",\n  \"address\": {\n    \"address_1\": \"string\",\n    \"address_2\": \"string\",\n    \"city\": \"string\",\n    \"province_code\": \"string\",\n    \"postal_code\": \"string\",\n    \"country\": \"string\"\n  },\n  \"customer_type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1476,\n  \"uuid\": \"string\",\n  \"custom_identifier\": \"string\",\n  \"name\": \"string\",\n  \"email\": \"string\",\n  \"customer_type\": \"Personal\",\n  \"home_phone\": \"string\",\n  \"phone\": \"string\",\n  \"bank_name\": \"string\",\n  \"institution_number\": \"string\",\n  \"transit_number\": \"string\",\n  \"bank_account_type\": \"Checking\",\n  \"authorization_type\": \"In Person\",\n  \"routing_number\": \"string\",\n  \"account_number\": \"string\",\n  \"address\": {\n    \"address_1\": \"string\",\n    \"address_2\": \"string\",\n    \"city\": \"string\",\n    \"province_code\": \"string\",\n    \"postal_code\": \"string\",\n    \"country\": \"string\"\n  },\n  \"transaction_schedules\": [\n    {\n      \"id\": 3749,\n      \"uuid\": \"string\",\n      \"amount\": 5552.825733265434,\n      \"process_date\": \"string\",\n      \"frequency\": \"Semi-Annually\",\n      \"installments\": 5101,\n      \"comment\": \"string\",\n      \"next_process_date\": \"string\",\n      \"financial_transactions\": [\n        {\n          \"id\": 27,\n          \"uuid\": \"string\",\n          \"amount\": 4855.4603649898445,\n          \"process_date\": \"string\",\n          \"status\": \"Future\",\n          \"status_reason\": \"string\",\n          \"transaction_schedule_id\": 3690,\n          \"bank_name\": \"string\",\n          \"institution_number\": \"string\",\n          \"transit_number\": \"string\",\n          \"account_number\": \"string\"\n        },\n        {\n          \"id\": 6827,\n          \"uuid\": \"string\",\n          \"amount\": 1762.9640917109034,\n          \"process_date\": \"string\",\n          \"status\": \"Chargeback\",\n          \"status_reason\": \"string\",\n          \"transaction_schedule_id\": 7031,\n          \"bank_name\": \"string\",\n          \"institution_number\": \"string\",\n          \"transit_number\": \"string\",\n          \"account_number\": \"string\"\n        }\n      ]\n    },\n    {\n      \"id\": 6084,\n      \"uuid\": \"string\",\n      \"amount\": 185.69488525439272,\n      \"process_date\": \"string\",\n      \"frequency\": \"Weekly\",\n      \"installments\": 9575,\n      \"comment\": \"string\",\n      \"next_process_date\": \"string\",\n      \"financial_transactions\": [\n        {\n          \"id\": 2067,\n          \"uuid\": \"string\",\n          \"amount\": 5106.9763682737275,\n          \"process_date\": \"string\",\n          \"status\": \"Declined\",\n          \"status_reason\": \"string\",\n          \"transaction_schedule_id\": 5913,\n          \"bank_name\": \"string\",\n          \"institution_number\": \"string\",\n          \"transit_number\": \"string\",\n          \"account_number\": \"string\"\n        },\n        {\n          \"id\": 8174,\n          \"uuid\": \"string\",\n          \"amount\": 4402.212067696655,\n          \"process_date\": \"string\",\n          \"status\": \"Chargeback\",\n          \"status_reason\": \"string\",\n          \"transaction_schedule_id\": 5862,\n          \"bank_name\": \"string\",\n          \"institution_number\": \"string\",\n          \"transit_number\": \"string\",\n          \"account_number\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"financial_transactions\": [\n    {\n      \"id\": 7775,\n      \"uuid\": \"string\",\n      \"amount\": 7639.831242929269,\n      \"process_date\": \"string\",\n      \"status\": \"Pending\",\n      \"status_reason\": \"string\",\n      \"transaction_schedule_id\": 2928,\n      \"bank_name\": \"string\",\n      \"institution_number\": \"string\",\n      \"transit_number\": \"string\",\n      \"account_number\": \"string\"\n    },\n    {\n      \"id\": 3718,\n      \"uuid\": \"string\",\n      \"amount\": 7037.564628205062,\n      \"process_date\": \"string\",\n      \"status\": \"Chargeback\",\n      \"status_reason\": \"string\",\n      \"transaction_schedule_id\": 6929,\n      \"bank_name\": \"string\",\n      \"institution_number\": \"string\",\n      \"transit_number\": \"string\",\n      \"account_number\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "09a9cfe1-da27-4d06-bb9d-a02e139f98d7",
+              "name": "Bad Request - your request includes invalid parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"account_number\": \"<string>\",\n  \"custom_identifier\": \"<string>\",\n  \"email\": \"<string>\",\n  \"home_phone\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"bank_name\": \"<string>\",\n  \"institution_number\": \"<string>\",\n  \"transit_number\": \"<string>\",\n  \"bank_account_type\": \"<string>\",\n  \"authorization_type\": \"<string>\",\n  \"routing_number\": \"<string>\",\n  \"address\": {\n    \"address_1\": \"string\",\n    \"address_2\": \"string\",\n    \"city\": \"string\",\n    \"province_code\": \"string\",\n    \"postal_code\": \"string\",\n    \"country\": \"string\"\n  },\n  \"customer_type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d976ff46-e90d-4e42-8593-43812bb40ad2",
+              "name": "Unauthorized - your API key is not valid or is missing.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"account_number\": \"<string>\",\n  \"custom_identifier\": \"<string>\",\n  \"email\": \"<string>\",\n  \"home_phone\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"bank_name\": \"<string>\",\n  \"institution_number\": \"<string>\",\n  \"transit_number\": \"<string>\",\n  \"bank_account_type\": \"<string>\",\n  \"authorization_type\": \"<string>\",\n  \"routing_number\": \"<string>\",\n  \"address\": {\n    \"address_1\": \"string\",\n    \"address_2\": \"string\",\n    \"city\": \"string\",\n    \"province_code\": \"string\",\n    \"postal_code\": \"string\",\n    \"country\": \"string\"\n  },\n  \"customer_type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7cc5ed64-3356-424e-81f9-be569f57b2f1",
+              "name": "Unprocessable Entity - your request results in invalid data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"account_number\": \"<string>\",\n  \"custom_identifier\": \"<string>\",\n  \"email\": \"<string>\",\n  \"home_phone\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"bank_name\": \"<string>\",\n  \"institution_number\": \"<string>\",\n  \"transit_number\": \"<string>\",\n  \"bank_account_type\": \"<string>\",\n  \"authorization_type\": \"<string>\",\n  \"routing_number\": \"<string>\",\n  \"address\": {\n    \"address_1\": \"string\",\n    \"address_2\": \"string\",\n    \"city\": \"string\",\n    \"province_code\": \"string\",\n    \"postal_code\": \"string\",\n    \"country\": \"string\"\n  },\n  \"customer_type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2e319410-1ddf-46fb-a417-0c35a6ea3758",
+          "name": "Update a customer via PATCH",
+          "request": {
+            "name": "Update a customer via PATCH",
+            "description": {
+              "content": "Update an existing customer identified by its Rotessa customer id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"account_number\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"custom_identifier\": \"<string>\",\n  \"email\": \"<string>\",\n  \"home_phone\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"bank_name\": \"<string>\",\n  \"institution_number\": \"<string>\",\n  \"transit_number\": \"<string>\",\n  \"bank_account_type\": \"<string>\",\n  \"authorization_type\": \"<string>\",\n  \"routing_number\": \"<string>\",\n  \"address\": {\n    \"address_1\": \"<string>\",\n    \"address_2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"province_code\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"customer_type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b499cf51-c4f2-42ee-aec2-27d2a4362b50",
+              "name": "The updated customer.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"string\",\n  \"account_number\": \"string\",\n  \"id\": \"<integer>\",\n  \"custom_identifier\": \"string\",\n  \"email\": \"string\",\n  \"home_phone\": \"string\",\n  \"phone\": \"string\",\n  \"bank_name\": \"string\",\n  \"institution_number\": \"string\",\n  \"transit_number\": \"string\",\n  \"bank_account_type\": \"Checking\",\n  \"authorization_type\": \"Online\",\n  \"routing_number\": \"string\",\n  \"address\": {\n    \"address_1\": \"string\",\n    \"address_2\": \"string\",\n    \"city\": \"string\",\n    \"province_code\": \"string\",\n    \"postal_code\": \"string\",\n    \"country\": \"string\"\n  },\n  \"customer_type\": \"Personal\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1476,\n  \"uuid\": \"string\",\n  \"custom_identifier\": \"string\",\n  \"name\": \"string\",\n  \"email\": \"string\",\n  \"customer_type\": \"Personal\",\n  \"home_phone\": \"string\",\n  \"phone\": \"string\",\n  \"bank_name\": \"string\",\n  \"institution_number\": \"string\",\n  \"transit_number\": \"string\",\n  \"bank_account_type\": \"Checking\",\n  \"authorization_type\": \"In Person\",\n  \"routing_number\": \"string\",\n  \"account_number\": \"string\",\n  \"address\": {\n    \"address_1\": \"string\",\n    \"address_2\": \"string\",\n    \"city\": \"string\",\n    \"province_code\": \"string\",\n    \"postal_code\": \"string\",\n    \"country\": \"string\"\n  },\n  \"transaction_schedules\": [\n    {\n      \"id\": 3749,\n      \"uuid\": \"string\",\n      \"amount\": 5552.825733265434,\n      \"process_date\": \"string\",\n      \"frequency\": \"Semi-Annually\",\n      \"installments\": 5101,\n      \"comment\": \"string\",\n      \"next_process_date\": \"string\",\n      \"financial_transactions\": [\n        {\n          \"id\": 27,\n          \"uuid\": \"string\",\n          \"amount\": 4855.4603649898445,\n          \"process_date\": \"string\",\n          \"status\": \"Future\",\n          \"status_reason\": \"string\",\n          \"transaction_schedule_id\": 3690,\n          \"bank_name\": \"string\",\n          \"institution_number\": \"string\",\n          \"transit_number\": \"string\",\n          \"account_number\": \"string\"\n        },\n        {\n          \"id\": 6827,\n          \"uuid\": \"string\",\n          \"amount\": 1762.9640917109034,\n          \"process_date\": \"string\",\n          \"status\": \"Chargeback\",\n          \"status_reason\": \"string\",\n          \"transaction_schedule_id\": 7031,\n          \"bank_name\": \"string\",\n          \"institution_number\": \"string\",\n          \"transit_number\": \"string\",\n          \"account_number\": \"string\"\n        }\n      ]\n    },\n    {\n      \"id\": 6084,\n      \"uuid\": \"string\",\n      \"amount\": 185.69488525439272,\n      \"process_date\": \"string\",\n      \"frequency\": \"Weekly\",\n      \"installments\": 9575,\n      \"comment\": \"string\",\n      \"next_process_date\": \"string\",\n      \"financial_transactions\": [\n        {\n          \"id\": 2067,\n          \"uuid\": \"string\",\n          \"amount\": 5106.9763682737275,\n          \"process_date\": \"string\",\n          \"status\": \"Declined\",\n          \"status_reason\": \"string\",\n          \"transaction_schedule_id\": 5913,\n          \"bank_name\": \"string\",\n          \"institution_number\": \"string\",\n          \"transit_number\": \"string\",\n          \"account_number\": \"string\"\n        },\n        {\n          \"id\": 8174,\n          \"uuid\": \"string\",\n          \"amount\": 4402.212067696655,\n          \"process_date\": \"string\",\n          \"status\": \"Chargeback\",\n          \"status_reason\": \"string\",\n          \"transaction_schedule_id\": 5862,\n          \"bank_name\": \"string\",\n          \"institution_number\": \"string\",\n          \"transit_number\": \"string\",\n          \"account_number\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"financial_transactions\": [\n    {\n      \"id\": 7775,\n      \"uuid\": \"string\",\n      \"amount\": 7639.831242929269,\n      \"process_date\": \"string\",\n      \"status\": \"Pending\",\n      \"status_reason\": \"string\",\n      \"transaction_schedule_id\": 2928,\n      \"bank_name\": \"string\",\n      \"institution_number\": \"string\",\n      \"transit_number\": \"string\",\n      \"account_number\": \"string\"\n    },\n    {\n      \"id\": 3718,\n      \"uuid\": \"string\",\n      \"amount\": 7037.564628205062,\n      \"process_date\": \"string\",\n      \"status\": \"Chargeback\",\n      \"status_reason\": \"string\",\n      \"transaction_schedule_id\": 6929,\n      \"bank_name\": \"string\",\n      \"institution_number\": \"string\",\n      \"transit_number\": \"string\",\n      \"account_number\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "76065351-fda3-45df-99e5-f058390f4950",
+              "name": "Bad Request - your request includes invalid parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"string\",\n  \"account_number\": \"string\",\n  \"id\": \"<integer>\",\n  \"custom_identifier\": \"string\",\n  \"email\": \"string\",\n  \"home_phone\": \"string\",\n  \"phone\": \"string\",\n  \"bank_name\": \"string\",\n  \"institution_number\": \"string\",\n  \"transit_number\": \"string\",\n  \"bank_account_type\": \"Checking\",\n  \"authorization_type\": \"Online\",\n  \"routing_number\": \"string\",\n  \"address\": {\n    \"address_1\": \"string\",\n    \"address_2\": \"string\",\n    \"city\": \"string\",\n    \"province_code\": \"string\",\n    \"postal_code\": \"string\",\n    \"country\": \"string\"\n  },\n  \"customer_type\": \"Personal\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "81be3744-75c9-4846-a854-7063c915f209",
+              "name": "Unauthorized - your API key is not valid or is missing.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"string\",\n  \"account_number\": \"string\",\n  \"id\": \"<integer>\",\n  \"custom_identifier\": \"string\",\n  \"email\": \"string\",\n  \"home_phone\": \"string\",\n  \"phone\": \"string\",\n  \"bank_name\": \"string\",\n  \"institution_number\": \"string\",\n  \"transit_number\": \"string\",\n  \"bank_account_type\": \"Checking\",\n  \"authorization_type\": \"Online\",\n  \"routing_number\": \"string\",\n  \"address\": {\n    \"address_1\": \"string\",\n    \"address_2\": \"string\",\n    \"city\": \"string\",\n    \"province_code\": \"string\",\n    \"postal_code\": \"string\",\n    \"country\": \"string\"\n  },\n  \"customer_type\": \"Personal\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "81de6b93-9cc8-4119-b1e0-4512a2d0130a",
+              "name": "Not Found - the specified resource could not be found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"string\",\n  \"account_number\": \"string\",\n  \"id\": \"<integer>\",\n  \"custom_identifier\": \"string\",\n  \"email\": \"string\",\n  \"home_phone\": \"string\",\n  \"phone\": \"string\",\n  \"bank_name\": \"string\",\n  \"institution_number\": \"string\",\n  \"transit_number\": \"string\",\n  \"bank_account_type\": \"Checking\",\n  \"authorization_type\": \"Online\",\n  \"routing_number\": \"string\",\n  \"address\": {\n    \"address_1\": \"string\",\n    \"address_2\": \"string\",\n    \"city\": \"string\",\n    \"province_code\": \"string\",\n    \"postal_code\": \"string\",\n    \"country\": \"string\"\n  },\n  \"customer_type\": \"Personal\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6609aad8-44a0-4e0f-baf9-95b99a24403c",
+              "name": "Unprocessable Entity - your request results in invalid data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"string\",\n  \"account_number\": \"string\",\n  \"id\": \"<integer>\",\n  \"custom_identifier\": \"string\",\n  \"email\": \"string\",\n  \"home_phone\": \"string\",\n  \"phone\": \"string\",\n  \"bank_name\": \"string\",\n  \"institution_number\": \"string\",\n  \"transit_number\": \"string\",\n  \"bank_account_type\": \"Checking\",\n  \"authorization_type\": \"Online\",\n  \"routing_number\": \"string\",\n  \"address\": {\n    \"address_1\": \"string\",\n    \"address_2\": \"string\",\n    \"city\": \"string\",\n    \"province_code\": \"string\",\n    \"postal_code\": \"string\",\n    \"country\": \"string\"\n  },\n  \"customer_type\": \"Personal\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8f7da723-2882-495a-b2c6-83a5dae546a4",
+          "name": "Get a specific customer based on Rotessa ID",
+          "request": {
+            "name": "Get a specific customer based on Rotessa ID",
+            "description": {},
+            "url": {
+              "path": [
+                "customers",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The ID of the customer to retrieve."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0939e9c4-cd1b-4b29-859b-46a44ab4cbd5",
+              "name": "The requested customer.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The ID of the customer to retrieve."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1476,\n  \"uuid\": \"string\",\n  \"custom_identifier\": \"string\",\n  \"name\": \"string\",\n  \"email\": \"string\",\n  \"customer_type\": \"Personal\",\n  \"home_phone\": \"string\",\n  \"phone\": \"string\",\n  \"bank_name\": \"string\",\n  \"institution_number\": \"string\",\n  \"transit_number\": \"string\",\n  \"bank_account_type\": \"Checking\",\n  \"authorization_type\": \"In Person\",\n  \"routing_number\": \"string\",\n  \"account_number\": \"string\",\n  \"address\": {\n    \"address_1\": \"string\",\n    \"address_2\": \"string\",\n    \"city\": \"string\",\n    \"province_code\": \"string\",\n    \"postal_code\": \"string\",\n    \"country\": \"string\"\n  },\n  \"transaction_schedules\": [\n    {\n      \"id\": 3749,\n      \"uuid\": \"string\",\n      \"amount\": 5552.825733265434,\n      \"process_date\": \"string\",\n      \"frequency\": \"Semi-Annually\",\n      \"installments\": 5101,\n      \"comment\": \"string\",\n      \"next_process_date\": \"string\",\n      \"financial_transactions\": [\n        {\n          \"id\": 27,\n          \"uuid\": \"string\",\n          \"amount\": 4855.4603649898445,\n          \"process_date\": \"string\",\n          \"status\": \"Future\",\n          \"status_reason\": \"string\",\n          \"transaction_schedule_id\": 3690,\n          \"bank_name\": \"string\",\n          \"institution_number\": \"string\",\n          \"transit_number\": \"string\",\n          \"account_number\": \"string\"\n        },\n        {\n          \"id\": 6827,\n          \"uuid\": \"string\",\n          \"amount\": 1762.9640917109034,\n          \"process_date\": \"string\",\n          \"status\": \"Chargeback\",\n          \"status_reason\": \"string\",\n          \"transaction_schedule_id\": 7031,\n          \"bank_name\": \"string\",\n          \"institution_number\": \"string\",\n          \"transit_number\": \"string\",\n          \"account_number\": \"string\"\n        }\n      ]\n    },\n    {\n      \"id\": 6084,\n      \"uuid\": \"string\",\n      \"amount\": 185.69488525439272,\n      \"process_date\": \"string\",\n      \"frequency\": \"Weekly\",\n      \"installments\": 9575,\n      \"comment\": \"string\",\n      \"next_process_date\": \"string\",\n      \"financial_transactions\": [\n        {\n          \"id\": 2067,\n          \"uuid\": \"string\",\n          \"amount\": 5106.9763682737275,\n          \"process_date\": \"string\",\n          \"status\": \"Declined\",\n          \"status_reason\": \"string\",\n          \"transaction_schedule_id\": 5913,\n          \"bank_name\": \"string\",\n          \"institution_number\": \"string\",\n          \"transit_number\": \"string\",\n          \"account_number\": \"string\"\n        },\n        {\n          \"id\": 8174,\n          \"uuid\": \"string\",\n          \"amount\": 4402.212067696655,\n          \"process_date\": \"string\",\n          \"status\": \"Chargeback\",\n          \"status_reason\": \"string\",\n          \"transaction_schedule_id\": 5862,\n          \"bank_name\": \"string\",\n          \"institution_number\": \"string\",\n          \"transit_number\": \"string\",\n          \"account_number\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"financial_transactions\": [\n    {\n      \"id\": 7775,\n      \"uuid\": \"string\",\n      \"amount\": 7639.831242929269,\n      \"process_date\": \"string\",\n      \"status\": \"Pending\",\n      \"status_reason\": \"string\",\n      \"transaction_schedule_id\": 2928,\n      \"bank_name\": \"string\",\n      \"institution_number\": \"string\",\n      \"transit_number\": \"string\",\n      \"account_number\": \"string\"\n    },\n    {\n      \"id\": 3718,\n      \"uuid\": \"string\",\n      \"amount\": 7037.564628205062,\n      \"process_date\": \"string\",\n      \"status\": \"Chargeback\",\n      \"status_reason\": \"string\",\n      \"transaction_schedule_id\": 6929,\n      \"bank_name\": \"string\",\n      \"institution_number\": \"string\",\n      \"transit_number\": \"string\",\n      \"account_number\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2c6a75c9-9795-4790-81c1-69443c518853",
+              "name": "Unauthorized - your API key is not valid or is missing.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The ID of the customer to retrieve."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "25da312d-8aa9-423f-accd-d2ea7a8ff72a",
+              "name": "Not Found - the specified resource could not be found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The ID of the customer to retrieve."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8ea656a-f0d2-4ab2-8877-327d273c7929",
+          "name": "Get a specific customer based on custom identifier",
+          "request": {
+            "name": "Get a specific customer based on custom identifier",
+            "description": {
+              "content": "Retrieve a customer by the merchant-supplied custom_identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "customers",
+                "show_with_custom_identifier"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"custom_identifier\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "509c53a5-87e4-4257-9c22-09d0e1f78441",
+              "name": "The requested customer.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "show_with_custom_identifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"custom_identifier\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1476,\n  \"uuid\": \"string\",\n  \"custom_identifier\": \"string\",\n  \"name\": \"string\",\n  \"email\": \"string\",\n  \"customer_type\": \"Personal\",\n  \"home_phone\": \"string\",\n  \"phone\": \"string\",\n  \"bank_name\": \"string\",\n  \"institution_number\": \"string\",\n  \"transit_number\": \"string\",\n  \"bank_account_type\": \"Checking\",\n  \"authorization_type\": \"In Person\",\n  \"routing_number\": \"string\",\n  \"account_number\": \"string\",\n  \"address\": {\n    \"address_1\": \"string\",\n    \"address_2\": \"string\",\n    \"city\": \"string\",\n    \"province_code\": \"string\",\n    \"postal_code\": \"string\",\n    \"country\": \"string\"\n  },\n  \"transaction_schedules\": [\n    {\n      \"id\": 3749,\n      \"uuid\": \"string\",\n      \"amount\": 5552.825733265434,\n      \"process_date\": \"string\",\n      \"frequency\": \"Semi-Annually\",\n      \"installments\": 5101,\n      \"comment\": \"string\",\n      \"next_process_date\": \"string\",\n      \"financial_transactions\": [\n        {\n          \"id\": 27,\n          \"uuid\": \"string\",\n          \"amount\": 4855.4603649898445,\n          \"process_date\": \"string\",\n          \"status\": \"Future\",\n          \"status_reason\": \"string\",\n          \"transaction_schedule_id\": 3690,\n          \"bank_name\": \"string\",\n          \"institution_number\": \"string\",\n          \"transit_number\": \"string\",\n          \"account_number\": \"string\"\n        },\n        {\n          \"id\": 6827,\n          \"uuid\": \"string\",\n          \"amount\": 1762.9640917109034,\n          \"process_date\": \"string\",\n          \"status\": \"Chargeback\",\n          \"status_reason\": \"string\",\n          \"transaction_schedule_id\": 7031,\n          \"bank_name\": \"string\",\n          \"institution_number\": \"string\",\n          \"transit_number\": \"string\",\n          \"account_number\": \"string\"\n        }\n      ]\n    },\n    {\n      \"id\": 6084,\n      \"uuid\": \"string\",\n      \"amount\": 185.69488525439272,\n      \"process_date\": \"string\",\n      \"frequency\": \"Weekly\",\n      \"installments\": 9575,\n      \"comment\": \"string\",\n      \"next_process_date\": \"string\",\n      \"financial_transactions\": [\n        {\n          \"id\": 2067,\n          \"uuid\": \"string\",\n          \"amount\": 5106.9763682737275,\n          \"process_date\": \"string\",\n          \"status\": \"Declined\",\n          \"status_reason\": \"string\",\n          \"transaction_schedule_id\": 5913,\n          \"bank_name\": \"string\",\n          \"institution_number\": \"string\",\n          \"transit_number\": \"string\",\n          \"account_number\": \"string\"\n        },\n        {\n          \"id\": 8174,\n          \"uuid\": \"string\",\n          \"amount\": 4402.212067696655,\n          \"process_date\": \"string\",\n          \"status\": \"Chargeback\",\n          \"status_reason\": \"string\",\n          \"transaction_schedule_id\": 5862,\n          \"bank_name\": \"string\",\n          \"institution_number\": \"string\",\n          \"transit_number\": \"string\",\n          \"account_number\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"financial_transactions\": [\n    {\n      \"id\": 7775,\n      \"uuid\": \"string\",\n      \"amount\": 7639.831242929269,\n      \"process_date\": \"string\",\n      \"status\": \"Pending\",\n      \"status_reason\": \"string\",\n      \"transaction_schedule_id\": 2928,\n      \"bank_name\": \"string\",\n      \"institution_number\": \"string\",\n      \"transit_number\": \"string\",\n      \"account_number\": \"string\"\n    },\n    {\n      \"id\": 3718,\n      \"uuid\": \"string\",\n      \"amount\": 7037.564628205062,\n      \"process_date\": \"string\",\n      \"status\": \"Chargeback\",\n      \"status_reason\": \"string\",\n      \"transaction_schedule_id\": 6929,\n      \"bank_name\": \"string\",\n      \"institution_number\": \"string\",\n      \"transit_number\": \"string\",\n      \"account_number\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ae425cb3-7602-44fd-9a28-b3b1a11b2f44",
+              "name": "Unauthorized - your API key is not valid or is missing.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "show_with_custom_identifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"custom_identifier\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f25f70de-fe9f-4d43-a21d-c04a5c44507b",
+              "name": "Not Found - the specified resource could not be found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "show_with_custom_identifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"custom_identifier\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e6945770-0a49-42e0-be77-a22591938906",
+          "name": "Update a customer via POST",
+          "request": {
+            "name": "Update a customer via POST",
+            "description": {
+              "content": "Update an existing customer using POST (for clients that cannot issue PATCH). Identify the customer by its Rotessa id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "customers",
+                "update_via_post"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"account_number\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"custom_identifier\": \"<string>\",\n  \"email\": \"<string>\",\n  \"home_phone\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"bank_name\": \"<string>\",\n  \"institution_number\": \"<string>\",\n  \"transit_number\": \"<string>\",\n  \"bank_account_type\": \"<string>\",\n  \"authorization_type\": \"<string>\",\n  \"routing_number\": \"<string>\",\n  \"address\": {\n    \"address_1\": \"<string>\",\n    \"address_2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"province_code\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"customer_type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9b1331e4-a4ff-4fb6-a8a2-48daaa7fbe53",
+              "name": "The updated customer.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "update_via_post"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"string\",\n  \"account_number\": \"string\",\n  \"id\": \"<integer>\",\n  \"custom_identifier\": \"string\",\n  \"email\": \"string\",\n  \"home_phone\": \"string\",\n  \"phone\": \"string\",\n  \"bank_name\": \"string\",\n  \"institution_number\": \"string\",\n  \"transit_number\": \"string\",\n  \"bank_account_type\": \"Checking\",\n  \"authorization_type\": \"Online\",\n  \"routing_number\": \"string\",\n  \"address\": {\n    \"address_1\": \"string\",\n    \"address_2\": \"string\",\n    \"city\": \"string\",\n    \"province_code\": \"string\",\n    \"postal_code\": \"string\",\n    \"country\": \"string\"\n  },\n  \"customer_type\": \"Personal\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1476,\n  \"uuid\": \"string\",\n  \"custom_identifier\": \"string\",\n  \"name\": \"string\",\n  \"email\": \"string\",\n  \"customer_type\": \"Personal\",\n  \"home_phone\": \"string\",\n  \"phone\": \"string\",\n  \"bank_name\": \"string\",\n  \"institution_number\": \"string\",\n  \"transit_number\": \"string\",\n  \"bank_account_type\": \"Checking\",\n  \"authorization_type\": \"In Person\",\n  \"routing_number\": \"string\",\n  \"account_number\": \"string\",\n  \"address\": {\n    \"address_1\": \"string\",\n    \"address_2\": \"string\",\n    \"city\": \"string\",\n    \"province_code\": \"string\",\n    \"postal_code\": \"string\",\n    \"country\": \"string\"\n  },\n  \"transaction_schedules\": [\n    {\n      \"id\": 3749,\n      \"uuid\": \"string\",\n      \"amount\": 5552.825733265434,\n      \"process_date\": \"string\",\n      \"frequency\": \"Semi-Annually\",\n      \"installments\": 5101,\n      \"comment\": \"string\",\n      \"next_process_date\": \"string\",\n      \"financial_transactions\": [\n        {\n          \"id\": 27,\n          \"uuid\": \"string\",\n          \"amount\": 4855.4603649898445,\n          \"process_date\": \"string\",\n          \"status\": \"Future\",\n          \"status_reason\": \"string\",\n          \"transaction_schedule_id\": 3690,\n          \"bank_name\": \"string\",\n          \"institution_number\": \"string\",\n          \"transit_number\": \"string\",\n          \"account_number\": \"string\"\n        },\n        {\n          \"id\": 6827,\n          \"uuid\": \"string\",\n          \"amount\": 1762.9640917109034,\n          \"process_date\": \"string\",\n          \"status\": \"Chargeback\",\n          \"status_reason\": \"string\",\n          \"transaction_schedule_id\": 7031,\n          \"bank_name\": \"string\",\n          \"institution_number\": \"string\",\n          \"transit_number\": \"string\",\n          \"account_number\": \"string\"\n        }\n      ]\n    },\n    {\n      \"id\": 6084,\n      \"uuid\": \"string\",\n      \"amount\": 185.69488525439272,\n      \"process_date\": \"string\",\n      \"frequency\": \"Weekly\",\n      \"installments\": 9575,\n      \"comment\": \"string\",\n      \"next_process_date\": \"string\",\n      \"financial_transactions\": [\n        {\n          \"id\": 2067,\n          \"uuid\": \"string\",\n          \"amount\": 5106.9763682737275,\n          \"process_date\": \"string\",\n          \"status\": \"Declined\",\n          \"status_reason\": \"string\",\n          \"transaction_schedule_id\": 5913,\n          \"bank_name\": \"string\",\n          \"institution_number\": \"string\",\n          \"transit_number\": \"string\",\n          \"account_number\": \"string\"\n        },\n        {\n          \"id\": 8174,\n          \"uuid\": \"string\",\n          \"amount\": 4402.212067696655,\n          \"process_date\": \"string\",\n          \"status\": \"Chargeback\",\n          \"status_reason\": \"string\",\n          \"transaction_schedule_id\": 5862,\n          \"bank_name\": \"string\",\n          \"institution_number\": \"string\",\n          \"transit_number\": \"string\",\n          \"account_number\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"financial_transactions\": [\n    {\n      \"id\": 7775,\n      \"uuid\": \"string\",\n      \"amount\": 7639.831242929269,\n      \"process_date\": \"string\",\n      \"status\": \"Pending\",\n      \"status_reason\": \"string\",\n      \"transaction_schedule_id\": 2928,\n      \"bank_name\": \"string\",\n      \"institution_number\": \"string\",\n      \"transit_number\": \"string\",\n      \"account_number\": \"string\"\n    },\n    {\n      \"id\": 3718,\n      \"uuid\": \"string\",\n      \"amount\": 7037.564628205062,\n      \"process_date\": \"string\",\n      \"status\": \"Chargeback\",\n      \"status_reason\": \"string\",\n      \"transaction_schedule_id\": 6929,\n      \"bank_name\": \"string\",\n      \"institution_number\": \"string\",\n      \"transit_number\": \"string\",\n      \"account_number\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f9e69a96-cab7-424e-b347-2d8a1a8279e1",
+              "name": "Bad Request - your request includes invalid parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "update_via_post"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"string\",\n  \"account_number\": \"string\",\n  \"id\": \"<integer>\",\n  \"custom_identifier\": \"string\",\n  \"email\": \"string\",\n  \"home_phone\": \"string\",\n  \"phone\": \"string\",\n  \"bank_name\": \"string\",\n  \"institution_number\": \"string\",\n  \"transit_number\": \"string\",\n  \"bank_account_type\": \"Checking\",\n  \"authorization_type\": \"Online\",\n  \"routing_number\": \"string\",\n  \"address\": {\n    \"address_1\": \"string\",\n    \"address_2\": \"string\",\n    \"city\": \"string\",\n    \"province_code\": \"string\",\n    \"postal_code\": \"string\",\n    \"country\": \"string\"\n  },\n  \"customer_type\": \"Personal\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dcb1c561-76dd-4068-baab-b9f1458e4db1",
+              "name": "Unauthorized - your API key is not valid or is missing.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "update_via_post"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"string\",\n  \"account_number\": \"string\",\n  \"id\": \"<integer>\",\n  \"custom_identifier\": \"string\",\n  \"email\": \"string\",\n  \"home_phone\": \"string\",\n  \"phone\": \"string\",\n  \"bank_name\": \"string\",\n  \"institution_number\": \"string\",\n  \"transit_number\": \"string\",\n  \"bank_account_type\": \"Checking\",\n  \"authorization_type\": \"Online\",\n  \"routing_number\": \"string\",\n  \"address\": {\n    \"address_1\": \"string\",\n    \"address_2\": \"string\",\n    \"city\": \"string\",\n    \"province_code\": \"string\",\n    \"postal_code\": \"string\",\n    \"country\": \"string\"\n  },\n  \"customer_type\": \"Personal\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dcc7aef8-c01b-423e-9df1-b3b7bb4ebaf0",
+              "name": "Not Found - the specified resource could not be found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "update_via_post"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"string\",\n  \"account_number\": \"string\",\n  \"id\": \"<integer>\",\n  \"custom_identifier\": \"string\",\n  \"email\": \"string\",\n  \"home_phone\": \"string\",\n  \"phone\": \"string\",\n  \"bank_name\": \"string\",\n  \"institution_number\": \"string\",\n  \"transit_number\": \"string\",\n  \"bank_account_type\": \"Checking\",\n  \"authorization_type\": \"Online\",\n  \"routing_number\": \"string\",\n  \"address\": {\n    \"address_1\": \"string\",\n    \"address_2\": \"string\",\n    \"city\": \"string\",\n    \"province_code\": \"string\",\n    \"postal_code\": \"string\",\n    \"country\": \"string\"\n  },\n  \"customer_type\": \"Personal\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f35593cf-791c-4210-80cf-0efc4d15a155",
+              "name": "Unprocessable Entity - your request results in invalid data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "update_via_post"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"string\",\n  \"account_number\": \"string\",\n  \"id\": \"<integer>\",\n  \"custom_identifier\": \"string\",\n  \"email\": \"string\",\n  \"home_phone\": \"string\",\n  \"phone\": \"string\",\n  \"bank_name\": \"string\",\n  \"institution_number\": \"string\",\n  \"transit_number\": \"string\",\n  \"bank_account_type\": \"Checking\",\n  \"authorization_type\": \"Online\",\n  \"routing_number\": \"string\",\n  \"address\": {\n    \"address_1\": \"string\",\n    \"address_2\": \"string\",\n    \"city\": \"string\",\n    \"province_code\": \"string\",\n    \"postal_code\": \"string\",\n    \"country\": \"string\"\n  },\n  \"customer_type\": \"Personal\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "e3f9b3f3-16c8-45fe-b9cf-b003f96446b6",
+      "name": "Transaction Schedules",
+      "description": {
+        "content": "Create and manage one-time and recurring PAD/ACH transaction schedules.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5352e547-17c6-46a4-a933-09e837d6fa13",
+          "name": "Create a transaction schedule with Rotessa Customer ID",
+          "request": {
+            "name": "Create a transaction schedule with Rotessa Customer ID",
+            "description": {
+              "content": "Create a one-time or recurring transaction schedule against a customer's bank account, identifying the customer by Rotessa customer_id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transaction_schedules"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customer_id\": \"<integer>\",\n  \"amount\": \"<number>\",\n  \"process_date\": \"<string>\",\n  \"frequency\": \"<string>\",\n  \"installments\": \"<integer>\",\n  \"comment\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1b2698be-9b32-4ae0-8b06-48ffd36d9e0c",
+              "name": "The created transaction schedule.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction_schedules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customer_id\": \"<integer>\",\n  \"amount\": \"<number>\",\n  \"process_date\": \"<string>\",\n  \"frequency\": \"Quarterly\",\n  \"installments\": \"<integer>\",\n  \"comment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 21,\n  \"uuid\": \"string\",\n  \"amount\": 3336.655811945377,\n  \"process_date\": \"string\",\n  \"frequency\": \"Weekly\",\n  \"installments\": 6854,\n  \"comment\": \"string\",\n  \"next_process_date\": \"string\",\n  \"financial_transactions\": [\n    {\n      \"id\": 6644,\n      \"uuid\": \"string\",\n      \"amount\": 9486.640834148024,\n      \"process_date\": \"string\",\n      \"status\": \"Approved\",\n      \"status_reason\": \"string\",\n      \"transaction_schedule_id\": 1745,\n      \"bank_name\": \"string\",\n      \"institution_number\": \"string\",\n      \"transit_number\": \"string\",\n      \"account_number\": \"string\"\n    },\n    {\n      \"id\": 1946,\n      \"uuid\": \"string\",\n      \"amount\": 2637.0608922186634,\n      \"process_date\": \"string\",\n      \"status\": \"Approved\",\n      \"status_reason\": \"string\",\n      \"transaction_schedule_id\": 8244,\n      \"bank_name\": \"string\",\n      \"institution_number\": \"string\",\n      \"transit_number\": \"string\",\n      \"account_number\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7db429d5-fd93-496d-bf93-31e9b7021611",
+              "name": "Bad Request - your request includes invalid parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction_schedules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customer_id\": \"<integer>\",\n  \"amount\": \"<number>\",\n  \"process_date\": \"<string>\",\n  \"frequency\": \"Quarterly\",\n  \"installments\": \"<integer>\",\n  \"comment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "354f4156-3bc6-4d72-a1c0-f372a0ce5cda",
+              "name": "Unauthorized - your API key is not valid or is missing.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction_schedules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customer_id\": \"<integer>\",\n  \"amount\": \"<number>\",\n  \"process_date\": \"<string>\",\n  \"frequency\": \"Quarterly\",\n  \"installments\": \"<integer>\",\n  \"comment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8786aa99-1068-4a1e-b6a4-819a4ba0e79c",
+              "name": "Unprocessable Entity - your request results in invalid data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction_schedules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customer_id\": \"<integer>\",\n  \"amount\": \"<number>\",\n  \"process_date\": \"<string>\",\n  \"frequency\": \"Quarterly\",\n  \"installments\": \"<integer>\",\n  \"comment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a37f35dd-2f90-48d6-8f8f-e6cf77873d87",
+          "name": "Create a transaction schedule with custom identifier",
+          "request": {
+            "name": "Create a transaction schedule with custom identifier",
+            "description": {
+              "content": "Create a transaction schedule identifying the customer by the merchant-supplied custom_identifier instead of the Rotessa customer_id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transaction_schedules",
+                "create_with_custom_identifier"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"custom_identifier\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"process_date\": \"<string>\",\n  \"frequency\": \"<string>\",\n  \"installments\": \"<integer>\",\n  \"comment\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "23364878-e90a-484d-a239-e122e11cbab1",
+              "name": "The created transaction schedule.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction_schedules",
+                    "create_with_custom_identifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"custom_identifier\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"process_date\": \"<string>\",\n  \"frequency\": \"Semi-Annually\",\n  \"installments\": \"<integer>\",\n  \"comment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 21,\n  \"uuid\": \"string\",\n  \"amount\": 3336.655811945377,\n  \"process_date\": \"string\",\n  \"frequency\": \"Weekly\",\n  \"installments\": 6854,\n  \"comment\": \"string\",\n  \"next_process_date\": \"string\",\n  \"financial_transactions\": [\n    {\n      \"id\": 6644,\n      \"uuid\": \"string\",\n      \"amount\": 9486.640834148024,\n      \"process_date\": \"string\",\n      \"status\": \"Approved\",\n      \"status_reason\": \"string\",\n      \"transaction_schedule_id\": 1745,\n      \"bank_name\": \"string\",\n      \"institution_number\": \"string\",\n      \"transit_number\": \"string\",\n      \"account_number\": \"string\"\n    },\n    {\n      \"id\": 1946,\n      \"uuid\": \"string\",\n      \"amount\": 2637.0608922186634,\n      \"process_date\": \"string\",\n      \"status\": \"Approved\",\n      \"status_reason\": \"string\",\n      \"transaction_schedule_id\": 8244,\n      \"bank_name\": \"string\",\n      \"institution_number\": \"string\",\n      \"transit_number\": \"string\",\n      \"account_number\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "29ea608e-81f5-4a60-b12d-5650fba090fa",
+              "name": "Bad Request - your request includes invalid parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction_schedules",
+                    "create_with_custom_identifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"custom_identifier\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"process_date\": \"<string>\",\n  \"frequency\": \"Semi-Annually\",\n  \"installments\": \"<integer>\",\n  \"comment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "76d53d5b-579f-4a2f-8374-57f469cb01a7",
+              "name": "Unauthorized - your API key is not valid or is missing.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction_schedules",
+                    "create_with_custom_identifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"custom_identifier\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"process_date\": \"<string>\",\n  \"frequency\": \"Semi-Annually\",\n  \"installments\": \"<integer>\",\n  \"comment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "21f0bb93-a39c-4f25-a196-db561ccc32a4",
+              "name": "Unprocessable Entity - your request results in invalid data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction_schedules",
+                    "create_with_custom_identifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"custom_identifier\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"process_date\": \"<string>\",\n  \"frequency\": \"Semi-Annually\",\n  \"installments\": \"<integer>\",\n  \"comment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6a0d06c9-f0e9-480b-8ff6-3c949368c0e9",
+          "name": "Get a specific transaction schedule",
+          "request": {
+            "name": "Get a specific transaction schedule",
+            "description": {},
+            "url": {
+              "path": [
+                "transaction_schedules",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The ID of the transaction schedule to retrieve."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "43b6aa2e-3d58-48ed-bccf-8805299e8aa5",
+              "name": "The requested transaction schedule.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction_schedules",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The ID of the transaction schedule to retrieve."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 21,\n  \"uuid\": \"string\",\n  \"amount\": 3336.655811945377,\n  \"process_date\": \"string\",\n  \"frequency\": \"Weekly\",\n  \"installments\": 6854,\n  \"comment\": \"string\",\n  \"next_process_date\": \"string\",\n  \"financial_transactions\": [\n    {\n      \"id\": 6644,\n      \"uuid\": \"string\",\n      \"amount\": 9486.640834148024,\n      \"process_date\": \"string\",\n      \"status\": \"Approved\",\n      \"status_reason\": \"string\",\n      \"transaction_schedule_id\": 1745,\n      \"bank_name\": \"string\",\n      \"institution_number\": \"string\",\n      \"transit_number\": \"string\",\n      \"account_number\": \"string\"\n    },\n    {\n      \"id\": 1946,\n      \"uuid\": \"string\",\n      \"amount\": 2637.0608922186634,\n      \"process_date\": \"string\",\n      \"status\": \"Approved\",\n      \"status_reason\": \"string\",\n      \"transaction_schedule_id\": 8244,\n      \"bank_name\": \"string\",\n      \"institution_number\": \"string\",\n      \"transit_number\": \"string\",\n      \"account_number\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cf0a2625-00a3-468c-8c95-b6af37da272f",
+              "name": "Unauthorized - your API key is not valid or is missing.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction_schedules",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The ID of the transaction schedule to retrieve."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "02a88c1e-618c-417a-8402-885c54ffec85",
+              "name": "Not Found - the specified resource could not be found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction_schedules",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The ID of the transaction schedule to retrieve."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "57c56df1-0b34-4a11-8567-e0ab2e0087de",
+          "name": "Update a specific transaction schedule with transaction ID",
+          "request": {
+            "name": "Update a specific transaction schedule with transaction ID",
+            "description": {},
+            "url": {
+              "path": [
+                "transaction_schedules",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The ID of the transaction schedule to update."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"amount\": \"<number>\",\n  \"comment\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "361ef6d5-f903-44a7-9ee4-7fba57442c2e",
+              "name": "The updated transaction schedule.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction_schedules",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The ID of the transaction schedule to update."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"amount\": \"<number>\",\n  \"comment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 21,\n  \"uuid\": \"string\",\n  \"amount\": 3336.655811945377,\n  \"process_date\": \"string\",\n  \"frequency\": \"Weekly\",\n  \"installments\": 6854,\n  \"comment\": \"string\",\n  \"next_process_date\": \"string\",\n  \"financial_transactions\": [\n    {\n      \"id\": 6644,\n      \"uuid\": \"string\",\n      \"amount\": 9486.640834148024,\n      \"process_date\": \"string\",\n      \"status\": \"Approved\",\n      \"status_reason\": \"string\",\n      \"transaction_schedule_id\": 1745,\n      \"bank_name\": \"string\",\n      \"institution_number\": \"string\",\n      \"transit_number\": \"string\",\n      \"account_number\": \"string\"\n    },\n    {\n      \"id\": 1946,\n      \"uuid\": \"string\",\n      \"amount\": 2637.0608922186634,\n      \"process_date\": \"string\",\n      \"status\": \"Approved\",\n      \"status_reason\": \"string\",\n      \"transaction_schedule_id\": 8244,\n      \"bank_name\": \"string\",\n      \"institution_number\": \"string\",\n      \"transit_number\": \"string\",\n      \"account_number\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bcb37860-2d11-43da-ab30-2880a38daf49",
+              "name": "Bad Request - your request includes invalid parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction_schedules",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The ID of the transaction schedule to update."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"amount\": \"<number>\",\n  \"comment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5d56c42c-1f73-4cb3-a923-7fff587db9d1",
+              "name": "Unauthorized - your API key is not valid or is missing.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction_schedules",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The ID of the transaction schedule to update."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"amount\": \"<number>\",\n  \"comment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aa416edf-637d-49bd-b35f-eadcc723a799",
+              "name": "Not Found - the specified resource could not be found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction_schedules",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The ID of the transaction schedule to update."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"amount\": \"<number>\",\n  \"comment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ff74bb93-c357-4f6d-9b73-7543ec6d1e32",
+              "name": "Unprocessable Entity - your request results in invalid data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction_schedules",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The ID of the transaction schedule to update."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"amount\": \"<number>\",\n  \"comment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "47662e36-2847-4828-8574-39540ef8c35b",
+          "name": "Delete a specific transaction schedule",
+          "request": {
+            "name": "Delete a specific transaction schedule",
+            "description": {},
+            "url": {
+              "path": [
+                "transaction_schedules",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The ID of the transaction schedule to delete."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aab577e5-96a3-4f82-8ae5-5a345f0ee1ab",
+              "name": "The transaction schedule was deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction_schedules",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The ID of the transaction schedule to delete."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "751b9949-41ac-4722-9a5a-fae96fa7317f",
+              "name": "Unauthorized - your API key is not valid or is missing.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction_schedules",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The ID of the transaction schedule to delete."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a448bc50-7b1c-481e-b414-bd510502ef10",
+              "name": "Not Found - the specified resource could not be found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction_schedules",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The ID of the transaction schedule to delete."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8f62efd1-f9bb-4941-8d22-e85e387a2ecb",
+          "name": "Update a specific transaction schedule via POST",
+          "request": {
+            "name": "Update a specific transaction schedule via POST",
+            "description": {
+              "content": "Update a transaction schedule using POST (for clients that cannot issue PATCH).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transaction_schedules",
+                "update_via_post"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"amount\": \"<number>\",\n  \"comment\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4d13e397-7c03-45e3-8f72-25fd35de36b4",
+              "name": "The updated transaction schedule.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction_schedules",
+                    "update_via_post"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"amount\": \"<number>\",\n  \"comment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 21,\n  \"uuid\": \"string\",\n  \"amount\": 3336.655811945377,\n  \"process_date\": \"string\",\n  \"frequency\": \"Weekly\",\n  \"installments\": 6854,\n  \"comment\": \"string\",\n  \"next_process_date\": \"string\",\n  \"financial_transactions\": [\n    {\n      \"id\": 6644,\n      \"uuid\": \"string\",\n      \"amount\": 9486.640834148024,\n      \"process_date\": \"string\",\n      \"status\": \"Approved\",\n      \"status_reason\": \"string\",\n      \"transaction_schedule_id\": 1745,\n      \"bank_name\": \"string\",\n      \"institution_number\": \"string\",\n      \"transit_number\": \"string\",\n      \"account_number\": \"string\"\n    },\n    {\n      \"id\": 1946,\n      \"uuid\": \"string\",\n      \"amount\": 2637.0608922186634,\n      \"process_date\": \"string\",\n      \"status\": \"Approved\",\n      \"status_reason\": \"string\",\n      \"transaction_schedule_id\": 8244,\n      \"bank_name\": \"string\",\n      \"institution_number\": \"string\",\n      \"transit_number\": \"string\",\n      \"account_number\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "846d591e-4a1e-4385-a480-ae641f8b4692",
+              "name": "Bad Request - your request includes invalid parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction_schedules",
+                    "update_via_post"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"amount\": \"<number>\",\n  \"comment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "75fc2e3b-4c2a-43d0-be03-38760bd35cf8",
+              "name": "Unauthorized - your API key is not valid or is missing.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction_schedules",
+                    "update_via_post"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"amount\": \"<number>\",\n  \"comment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6ba722b0-bf84-4fc4-ab60-e26852745722",
+              "name": "Not Found - the specified resource could not be found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction_schedules",
+                    "update_via_post"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"amount\": \"<number>\",\n  \"comment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea302693-6dd4-496c-9c4c-8184a53d12a6",
+              "name": "Unprocessable Entity - your request results in invalid data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction_schedules",
+                    "update_via_post"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"amount\": \"<number>\",\n  \"comment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "c5a4f95a-b468-4eb3-811b-5daecd1b6079",
+      "name": "Transaction Report",
+      "description": {
+        "content": "Retrieve financial transaction records and their status for reconciliation.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "22d2e61b-c289-400b-8e04-741d3c21032f",
+          "name": "Show transaction report",
+          "request": {
+            "name": "Show transaction report",
+            "description": {
+              "content": "Retrieve financial transaction records and their status for reconciliation and reporting. Paginated at 1000 transactions per page.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transaction_report"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<date>",
+                  "description": "(Required) The earliest process date (YYYY-MM-DD) of the list of transactions."
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<date>",
+                  "description": "The last process date (YYYY-MM-DD) of the list of transactions. Optional."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "All",
+                  "description": "Filter by the given financial status of the transactions."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page selected based on 1000 transactions per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4fee70ef-237f-4717-acbc-bc5d408638b8",
+              "name": "A list of financial transactions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction_report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "All"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 5869,\n    \"uuid\": \"string\",\n    \"amount\": 7209.285274792417,\n    \"process_date\": \"string\",\n    \"status\": \"Declined\",\n    \"status_reason\": \"string\",\n    \"transaction_schedule_id\": 3564,\n    \"bank_name\": \"string\",\n    \"institution_number\": \"string\",\n    \"transit_number\": \"string\",\n    \"account_number\": \"string\"\n  },\n  {\n    \"id\": 1038,\n    \"uuid\": \"string\",\n    \"amount\": 8425.656873722392,\n    \"process_date\": \"string\",\n    \"status\": \"Future\",\n    \"status_reason\": \"string\",\n    \"transaction_schedule_id\": 866,\n    \"bank_name\": \"string\",\n    \"institution_number\": \"string\",\n    \"transit_number\": \"string\",\n    \"account_number\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "727952dd-b630-4826-acd6-bc732b7ba76d",
+              "name": "Unauthorized - your API key is not valid or is missing.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction_report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "All"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c3ded232-f99f-49ab-8631-43540ea0cc11",
+              "name": "Not Acceptable - you requested a format that isn't json.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction_report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "All"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    },\n    {\n      \"error_code\": \"installments_required\",\n      \"error_message\": \"Installments value must be at least 1.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.rotessa.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "37d37bb0-06a0-4258-a99a-87b687aba877",
+    "name": "Rotessa API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Rotessa API provides programmatic access to the core Rotessa platform for collecting recurring payments directly from customers' bank accounts over Canadian pre-authorized debit (PAD) and US ACH rails. It lets you manage customers (bank-account holders), create one-time and recurring transaction schedules against a customer's bank account, and query the resulting financial transactions via the transaction report. Authentication is by API key placed in the Authorization header. Faithful generation from https://rotessa.com/docs/.\n\nContact Support:\n Name: Rotessa Support\n Email: support@rotessa.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,275 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rotessa API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Customers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all customers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rotessa.com/v1/customers"
+          },
+          "docs": "Retrieve the list of customers associated with your Rotessa account."
+        },
+        {
+          "info": {
+            "name": "Create a customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rotessa.com/v1/customers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a customer (bank-account holder) that Rotessa can withdraw funds from. Provide Canadian bank coordinates (institution_number, transit_number) or US coordinates (routing_number, bank_account_type), plus the account_number."
+        },
+        {
+          "info": {
+            "name": "Update a customer via PATCH",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.rotessa.com/v1/customers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing customer identified by its Rotessa customer id."
+        },
+        {
+          "info": {
+            "name": "Get a specific customer based on Rotessa ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rotessa.com/v1/customers/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the customer to retrieve."
+              }
+            ]
+          },
+          "docs": "Get a specific customer based on Rotessa ID"
+        },
+        {
+          "info": {
+            "name": "Get a specific customer based on custom identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rotessa.com/v1/customers/show_with_custom_identifier",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve a customer by the merchant-supplied custom_identifier."
+        },
+        {
+          "info": {
+            "name": "Update a customer via POST",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rotessa.com/v1/customers/update_via_post",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing customer using POST (for clients that cannot issue PATCH). Identify the customer by its Rotessa id."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Transaction Schedules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a transaction schedule with Rotessa Customer ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rotessa.com/v1/transaction_schedules",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a one-time or recurring transaction schedule against a customer's bank account, identifying the customer by Rotessa customer_id."
+        },
+        {
+          "info": {
+            "name": "Create a transaction schedule with custom identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rotessa.com/v1/transaction_schedules/create_with_custom_identifier",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a transaction schedule identifying the customer by the merchant-supplied custom_identifier instead of the Rotessa customer_id."
+        },
+        {
+          "info": {
+            "name": "Get a specific transaction schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rotessa.com/v1/transaction_schedules/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the transaction schedule to retrieve."
+              }
+            ]
+          },
+          "docs": "Get a specific transaction schedule"
+        },
+        {
+          "info": {
+            "name": "Update a specific transaction schedule with transaction ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.rotessa.com/v1/transaction_schedules/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the transaction schedule to update."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a specific transaction schedule with transaction ID"
+        },
+        {
+          "info": {
+            "name": "Delete a specific transaction schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.rotessa.com/v1/transaction_schedules/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the transaction schedule to delete."
+              }
+            ]
+          },
+          "docs": "Delete a specific transaction schedule"
+        },
+        {
+          "info": {
+            "name": "Update a specific transaction schedule via POST",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rotessa.com/v1/transaction_schedules/update_via_post",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a transaction schedule using POST (for clients that cannot issue PATCH)."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Transaction Report",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Show transaction report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rotessa.com/v1/transaction_report",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "The earliest process date (YYYY-MM-DD) of the list of transactions."
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "The last process date (YYYY-MM-DD) of the list of transactions. Optional."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by the given financial status of the transactions."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page selected based on 1000 transactions per page."
+              }
+            ]
+          },
+          "docs": "Retrieve financial transaction records and their status for reconciliation and reporting. Paginated at 1000 transactions per page."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
