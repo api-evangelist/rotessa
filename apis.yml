@@ -26,6 +26,18 @@ tags:
 - Account-to-Account
 - Bank Payments
 - Recurring Payments
+- Subscription
+- Direct Debit
+- Money Movement
+- Open Banking
+tags_raw:
+- Payments
+- Canada
+- Pre-Authorized Debit
+- ACH
+- Account-to-Account
+- Bank Payments
+- Recurring Payments
 - Subscriptions
 - Direct Debit
 - Money Movement
@@ -75,6 +87,10 @@ apis:
   humanURL: https://rotessa.com/docs/#transaction-report
   baseURL: https://api.rotessa.com/v1
   tags:
+  - Transaction
+  - Reporting
+  - Reconciliation
+  tags_raw:
   - Transactions
   - Reporting
   - Reconciliation
