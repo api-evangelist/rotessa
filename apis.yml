@@ -142,6 +142,9 @@ apis:
   - type: OpenAPI
     url: openapi/rotessa-transaction-schedules-api-openapi.yml
 common:
+- type: CapabilityMap
+  url: capabilities/rotessa-capability-edges.yml
+  name: Rotessa Business Capability Map
 - type: AgenticAccess
   url: agentic-access/rotessa-agentic-access.yml
 - type: DomainSecurity
