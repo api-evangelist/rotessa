@@ -1,0 +1,372 @@
+openapi: 3.2.0
+info:
+  title: Rotessa Transaction Schedules API
+  version: v1
+  description: The Rotessa API provides programmatic access to the core Rotessa platform for collecting recurring payments directly from customers' bank accounts over Canadian pre-authorized debit (PAD) and US ACH rails. It lets you manage customers (bank-account holders), create one-time and recurring transaction schedules against a customer's bank account, and query the resulting financial transactions via the transaction report. Authentication is by API key placed in the Authorization header. Faithful generation from https://rotessa.com/docs/.
+  contact:
+    name: Rotessa Support
+    url: https://support.rotessa.com/
+    email: support@rotessa.com
+  termsOfService: https://rotessa.com/legal/
+servers:
+- url: https://api.rotessa.com/v1
+  description: Production
+- url: https://sandbox-api.rotessa.com/v1
+  description: Sandbox / test environment
+security:
+- apiKeyAuth: []
+tags:
+- name: Transaction Schedules
+  description: Create and manage one-time and recurring PAD/ACH transaction schedules.
+paths:
+  /transaction_schedules:
+    post:
+      operationId: createTransactionSchedule
+      tags:
+      - Transaction Schedules
+      summary: Create a transaction schedule with Rotessa Customer ID
+      description: Create a one-time or recurring transaction schedule against a customer's bank account, identifying the customer by Rotessa customer_id.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionScheduleCreate'
+      responses:
+        '200':
+          description: The created transaction schedule.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionSchedule'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /transaction_schedules/create_with_custom_identifier:
+    post:
+      operationId: createTransactionScheduleWithCustomIdentifier
+      tags:
+      - Transaction Schedules
+      summary: Create a transaction schedule with custom identifier
+      description: Create a transaction schedule identifying the customer by the merchant-supplied custom_identifier instead of the Rotessa customer_id.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionScheduleCreateWithCustomIdentifier'
+      responses:
+        '200':
+          description: The created transaction schedule.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionSchedule'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /transaction_schedules/{id}:
+    get:
+      operationId: getTransactionSchedule
+      tags:
+      - Transaction Schedules
+      summary: Get a specific transaction schedule
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: The ID of the transaction schedule to retrieve.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: The requested transaction schedule.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionSchedule'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateTransactionSchedule
+      tags:
+      - Transaction Schedules
+      summary: Update a specific transaction schedule with transaction ID
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: The ID of the transaction schedule to update.
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionScheduleUpdate'
+      responses:
+        '200':
+          description: The updated transaction schedule.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionSchedule'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+    delete:
+      operationId: deleteTransactionSchedule
+      tags:
+      - Transaction Schedules
+      summary: Delete a specific transaction schedule
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: The ID of the transaction schedule to delete.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: The transaction schedule was deleted.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /transaction_schedules/update_via_post:
+    post:
+      operationId: updateTransactionScheduleViaPost
+      tags:
+      - Transaction Schedules
+      summary: Update a specific transaction schedule via POST
+      description: Update a transaction schedule using POST (for clients that cannot issue PATCH).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionScheduleUpdate'
+      responses:
+        '200':
+          description: The updated transaction schedule.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionSchedule'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+components:
+  schemas:
+    TransactionScheduleCreate:
+      type: object
+      required:
+      - customer_id
+      - amount
+      - process_date
+      - frequency
+      properties:
+        customer_id:
+          type: integer
+          description: ID of customer
+        amount:
+          type: number
+          description: Amount for schedule
+        process_date:
+          type: string
+          description: The initial date to begin withdrawing funds (e.g. November 20
+          2016): null
+        frequency:
+          $ref: '#/components/schemas/Frequency'
+        installments:
+          type: integer
+          description: The number of installments. If excluded
+          schedule is indefinite.: null
+        comment:
+          type: string
+          description: Optional comment for schedule
+    FinancialTransaction:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ID of the financial transaction
+        uuid:
+          type: string
+          description: UUID of the financial transaction
+        amount:
+          type: number
+          description: Transaction amount
+        process_date:
+          type: string
+          description: The scheduled process date of the transaction
+        status:
+          type: string
+          description: The current status of the transaction.
+          enum:
+          - Future
+          - Pending
+          - Approved
+          - Declined
+          - Chargeback
+        status_reason:
+          type: string
+          description: The reason for the Declined or Chargeback status of a transaction.
+        transaction_schedule_id:
+          type: integer
+          description: ID of the transaction schedule that created this transaction
+        bank_name:
+          type: string
+        institution_number:
+          type: string
+        transit_number:
+          type: string
+        account_number:
+          type: string
+    ErrorEnvelope:
+      type: object
+      description: Rotessa error envelope. Errors are returned as a list of objects each carrying a machine-readable error_code and a human-readable error_message.
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              error_code:
+                type: string
+                example: installments_required
+              error_message:
+                type: string
+                example: Installments value must be at least 1.
+    Frequency:
+      type: string
+      description: Frequency of the transaction schedule.
+      enum:
+      - Once
+      - Weekly
+      - Every Other Week
+      - Monthly
+      - Every Other Month
+      - Quarterly
+      - Semi-Annually
+      - Yearly
+    TransactionScheduleUpdate:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: integer
+          description: The ID of the transaction schedule to update
+        amount:
+          type: number
+          description: Amount for the schedule
+        comment:
+          type: string
+          description: Optional comment for schedule
+    TransactionScheduleCreateWithCustomIdentifier:
+      type: object
+      required:
+      - custom_identifier
+      - amount
+      - process_date
+      - frequency
+      properties:
+        custom_identifier:
+          type: string
+          description: Your own unique custom identifier for the customer
+        amount:
+          type: number
+          description: Amount for schedule
+        process_date:
+          type: string
+          description: The initial date to begin withdrawing funds
+        frequency:
+          $ref: '#/components/schemas/Frequency'
+        installments:
+          type: integer
+          description: The number of installments. If excluded
+          schedule is indefinite.: null
+        comment:
+          type: string
+          description: Optional comment for schedule
+    TransactionSchedule:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ID of the transaction schedule
+        uuid:
+          type: string
+          description: UUID of the transaction schedule
+        amount:
+          type: number
+          description: Amount for schedule
+        process_date:
+          type: string
+          description: The initial date to begin withdrawing funds
+        frequency:
+          $ref: '#/components/schemas/Frequency'
+        installments:
+          type: integer
+          description: The number of installments. Leave blank to continue indefinitely.
+        comment:
+          type: string
+          description: A place to enter notes for the transaction schedule
+        next_process_date:
+          type: string
+          description: The next date that funds will be withdrawn
+        financial_transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/FinancialTransaction'
+  responses:
+    UnprocessableEntity:
+      description: Unprocessable Entity - your request results in invalid data.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+    BadRequest:
+      description: Bad Request - your request includes invalid parameters.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+    NotFound:
+      description: Not Found - the specified resource could not be found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+    Unauthorized:
+      description: Unauthorized - your API key is not valid or is missing.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'API key placed in the Authorization header in the form `Authorization: Token token="<your_api_key>"`. Keys are created and revoked in the Rotessa admin portal.'
