@@ -2,21 +2,16 @@ aid: rotessa
 url: https://raw.githubusercontent.com/api-evangelist/rotessa/refs/heads/main/apis.yml
 name: Rotessa
 kind: company
-description: >-
-  Rotessa is a Winnipeg, Manitoba-based fintech that helps small and mid-sized
-  North American businesses collect recurring payments directly from their
-  customers' bank accounts. In Canada it moves money over the pre-authorized
-  debit (PAD) rails and in the United States over ACH, positioning itself as a
-  low-cost, bank-account-native alternative to card processing for invoices,
-  memberships, subscriptions, tuition, and rent. Rotessa exposes a genuine
-  public REST API (https://api.rotessa.com/v1) that lets platforms and businesses
-  programmatically create customers, verify bank details (including via the
-  Flinks aggregator), and schedule one-time or recurring transactions, backed by
-  a free sandbox (sandbox.rotessa.com) and API-key authentication. As an
-  API-native SMB money-movement fintech, it sits in the thin-but-real
-  account-to-account layer of Canada's payments market, alongside peers like
-  VoPay, Plooto, and Helcim, operating through bank rails and aggregators rather
-  than any live open-banking payment mandate.
+description: Rotessa is a Winnipeg, Manitoba-based fintech that helps small and mid-sized North American
+  businesses collect recurring payments directly from their customers' bank accounts. In Canada it moves
+  money over the pre-authorized debit (PAD) rails and in the United States over ACH, positioning itself
+  as a low-cost, bank-account-native alternative to card processing for invoices, memberships, subscriptions,
+  tuition, and rent. Rotessa exposes a genuine public REST API (https://api.rotessa.com/v1) that lets
+  platforms and businesses programmatically create customers, verify bank details (including via the Flinks
+  aggregator), and schedule one-time or recurring transactions, backed by a free sandbox (sandbox.rotessa.com)
+  and API-key authentication. As an API-native SMB money-movement fintech, it sits in the thin-but-real
+  account-to-account layer of Canada's payments market, alongside peers like VoPay, Plooto, and Helcim,
+  operating through bank rails and aggregators rather than any live open-banking payment mandate.
 deliveryModel:
   model: saas
   open_source: false
@@ -69,14 +64,13 @@ tags_raw:
 - Money Movement
 - Open Banking
 created: '2026-07-24'
-modified: '2026-07-25'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
 - aid: rotessa:rotessa-customers-api
   name: Rotessa Customers API
-  description: >-
-    Create, retrieve, and update the customers (bank-account holders) that Rotessa withdraws recurring
-    payments from. Supports lookup by Rotessa customer ID or by a merchant-supplied custom identifier,
+  description: Create, retrieve, and update the customers (bank-account holders) that Rotessa withdraws
+    recurring payments from. Supports lookup by Rotessa customer ID or by a merchant-supplied custom identifier,
     and PATCH or POST update flows. Base URL https://api.rotessa.com/v1; API-key authentication.
   humanURL: https://rotessa.com/docs/#customers
   baseURL: https://api.rotessa.com/v1
@@ -90,10 +84,10 @@ apis:
     url: https://rotessa.com/docs/#customers
 - aid: rotessa:rotessa-transaction-schedules-api
   name: Rotessa Transaction Schedules API
-  description: >-
-    Create and manage one-time and recurring pre-authorized debit / ACH transaction schedules against
-    a customer's bank account, including schedule frequency, creation by Rotessa customer ID or custom
-    identifier, PATCH/POST updates, and deletion. Base URL https://api.rotessa.com/v1; API-key authentication.
+  description: Create and manage one-time and recurring pre-authorized debit / ACH transaction schedules
+    against a customer's bank account, including schedule frequency, creation by Rotessa customer ID or
+    custom identifier, PATCH/POST updates, and deletion. Base URL https://api.rotessa.com/v1; API-key
+    authentication.
   humanURL: https://rotessa.com/docs/#transaction-schedules
   baseURL: https://api.rotessa.com/v1
   tags:
@@ -107,9 +101,8 @@ apis:
     url: https://rotessa.com/docs/#transaction-schedules
 - aid: rotessa:rotessa-transaction-report-api
   name: Rotessa Transaction Report API
-  description: >-
-    Retrieve financial transaction records and their status (and status reasons) for reconciliation and
-    reporting via the transaction report endpoint. Base URL https://api.rotessa.com/v1; API-key authentication.
+  description: Retrieve financial transaction records and their status (and status reasons) for reconciliation
+    and reporting via the transaction report endpoint. Base URL https://api.rotessa.com/v1; API-key authentication.
   humanURL: https://rotessa.com/docs/#transaction-report
   baseURL: https://api.rotessa.com/v1
   tags:
@@ -194,7 +187,7 @@ common:
 - type: PrivacyPolicy
   url: https://rotessa.com/legal/privacy/
 - type: OpenAPI
-  url: openapi/rotessa-openapi.yml
+  url: openapi/_original/rotessa-openapi.yml
 - type: LLMsTxt
   url: llms/rotessa-llms.txt
 - type: Conventions
@@ -215,7 +208,10 @@ common:
   url: packages/rotessa-packages.yml
 - type: X-MCPServerCandidate
   url: mcp/rotessa-mcp.yml
-  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'
+  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate
+    — a tool list derived from the published API contracts, not an existing server. The scorer already
+    read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type
+    surfaces with a server that does not exist.'
 - type: ToolCrosswalk
   url: mcp/rotessa-tool-crosswalk.yml
 - type: Overlay
