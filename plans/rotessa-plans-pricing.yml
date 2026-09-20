@@ -1,0 +1,62 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-09-20'
+method: searched
+source: https://rotessa.com/pricing/
+sources:
+- https://rotessa.com/pricing/
+provenance:
+  tool: planning/api-economics/harvest_pricing.py
+  run: 20260920T120546
+  grounding: every price_text was found verbatim in the fetched page text
+audience: business-product
+pricing_basis: tiered-subscription
+published: true
+note: Pricing page for Rotessa's payment processing product; API access included with every account. Volume
+  over 500 transactions/month requires contacting sales.
+plan_count: 7
+currency: USD
+plans:
+- name: Base plan
+  price_text: $ 25 /month + $0.50/transaction
+  currency: USD
+  period: month
+  unit: transaction
+  overage: $30 for each NSF, stopped payment, or agreement terms not met. $2 for each online customer
+    bank authentication (when required).
+- name: 1-10 Transactions
+  price_text: $17 /mo.
+  price: 17
+  currency: USD
+  period: month
+  unit: 1-10 transactions
+  included_quota: 1-10 transactions
+- name: 11-50 Transactions
+  price_text: $39 /mo.
+  price: 39
+  currency: USD
+  period: month
+  unit: 11-50 transactions
+  included_quota: 11-50 transactions
+- name: 51-100 Transactions
+  price_text: $65 /mo.
+  price: 65
+  currency: USD
+  period: month
+  unit: 51-100 transactions
+  included_quota: 51-100 transactions
+- name: 101-250 Transactions
+  price_text: $94 /mo.
+  price: 94
+  currency: USD
+  period: month
+  unit: 101-250 transactions
+  included_quota: 101-250 transactions
+- name: 251-1000 Transactions
+  price_text: 35¢
+  price: 35
+  period: per-use
+  unit: per transaction
+  overage: Users processing over 250 transactions a month pay per transaction.
+- name: 1001+ Transactions
+  price_text: Custom
+  period: none
