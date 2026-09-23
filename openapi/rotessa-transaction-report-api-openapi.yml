@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   title: Rotessa Transaction Report API
   version: v1
-  description: The Rotessa API provides programmatic access to the core Rotessa platform for collecting recurring payments directly from customers' bank accounts over Canadian pre-authorized debit (PAD) and US ACH rails. It lets you manage customers (bank-account holders), create one-time and recurring transaction schedules against a customer's bank account, and query the resulting financial transactions via the transaction report. Authentication is by API key placed in the Authorization header. Faithful generation from https://rotessa.com/docs/.
+  description: The Rotessa API provides programmatic access to the core Rotessa platform for collecting recurring payments directly from customers' bank accounts over Canadian pre-authorized debit (PAD) and US ACH rails.
   contact:
     name: Rotessa Support
     url: https://support.rotessa.com/

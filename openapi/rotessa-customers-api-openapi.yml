@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   title: Rotessa Customers API
   version: v1
-  description: The Rotessa API provides programmatic access to the core Rotessa platform for collecting recurring payments directly from customers' bank accounts over Canadian pre-authorized debit (PAD) and US ACH rails. It lets you manage customers (bank-account holders), create one-time and recurring transaction schedules against a customer's bank account, and query the resulting financial transactions via the transaction report. Authentication is by API key placed in the Authorization header. Faithful generation from https://rotessa.com/docs/.
+  description: The Rotessa API provides programmatic access to the core Rotessa platform for collecting recurring payments directly from customers' bank accounts over Canadian pre-authorized debit (PAD) and US ACH rails.
   contact:
     name: Rotessa Support
     url: https://support.rotessa.com/
@@ -181,6 +181,12 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorEnvelope'
+    NotFound:
+      description: Not Found - the specified resource could not be found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
     BadRequest:
       description: Bad Request - your request includes invalid parameters.
       content:
@@ -189,12 +195,6 @@ components:
             $ref: '#/components/schemas/ErrorEnvelope'
     InternalServerError:
       description: Internal Server Error - we had a problem with our server. Try again later.
-    NotFound:
-      description: Not Found - the specified resource could not be found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
     Unauthorized:
       description: Unauthorized - your API key is not valid or is missing.
       content:
@@ -202,74 +202,21 @@ components:
           schema:
             $ref: '#/components/schemas/ErrorEnvelope'
   schemas:
-    FinancialTransaction:
+    ErrorEnvelope:
       type: object
+      description: Rotessa error envelope. Errors are returned as a list of objects each carrying a machine-readable error_code and a human-readable error_message.
       properties:
-        id:
-          type: integer
-          description: ID of the financial transaction
-        uuid:
-          type: string
-          description: UUID of the financial transaction
-        amount:
-          type: number
-          description: Transaction amount
-        process_date:
-          type: string
-          description: The scheduled process date of the transaction
-        status:
-          type: string
-          description: The current status of the transaction.
-          enum:
-          - Future
-          - Pending
-          - Approved
-          - Declined
-          - Chargeback
-        status_reason:
-          type: string
-          description: The reason for the Declined or Chargeback status of a transaction.
-        transaction_schedule_id:
-          type: integer
-          description: ID of the transaction schedule that created this transaction
-        bank_name:
-          type: string
-        institution_number:
-          type: string
-        transit_number:
-          type: string
-        account_number:
-          type: string
-    TransactionSchedule:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: ID of the transaction schedule
-        uuid:
-          type: string
-          description: UUID of the transaction schedule
-        amount:
-          type: number
-          description: Amount for schedule
-        process_date:
-          type: string
-          description: The initial date to begin withdrawing funds
-        frequency:
-          $ref: '#/components/schemas/Frequency'
-        installments:
-          type: integer
-          description: The number of installments. Leave blank to continue indefinitely.
-        comment:
-          type: string
-          description: A place to enter notes for the transaction schedule
-        next_process_date:
-          type: string
-          description: The next date that funds will be withdrawn
-        financial_transactions:
+        errors:
           type: array
           items:
-            $ref: '#/components/schemas/FinancialTransaction'
+            type: object
+            properties:
+              error_code:
+                type: string
+                example: installments_required
+              error_message:
+                type: string
+                example: Installments value must be at least 1.
     Address:
       type: object
       description: Customer address.
@@ -295,21 +242,6 @@ components:
             type: integer
             description: The ID of the customer to update
       - $ref: '#/components/schemas/CustomerCreate'
-    ErrorEnvelope:
-      type: object
-      description: Rotessa error envelope. Errors are returned as a list of objects each carrying a machine-readable error_code and a human-readable error_message.
-      properties:
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              error_code:
-                type: string
-                example: installments_required
-              error_message:
-                type: string
-                example: Installments value must be at least 1.
     Frequency:
       type: string
       description: Frequency of the transaction schedule.
@@ -384,6 +316,36 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FinancialTransaction'
+    TransactionSchedule:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ID of the transaction schedule
+        uuid:
+          type: string
+          description: UUID of the transaction schedule
+        amount:
+          type: number
+          description: Amount for schedule
+        process_date:
+          type: string
+          description: The initial date to begin withdrawing funds
+        frequency:
+          $ref: '#/components/schemas/Frequency'
+        installments:
+          type: integer
+          description: The number of installments. Leave blank to continue indefinitely.
+        comment:
+          type: string
+          description: A place to enter notes for the transaction schedule
+        next_process_date:
+          type: string
+          description: The next date that funds will be withdrawn
+        financial_transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/FinancialTransaction'
     CustomerCreate:
       type: object
       required:
@@ -434,6 +396,44 @@ components:
           enum:
           - Personal
           - Business
+    FinancialTransaction:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ID of the financial transaction
+        uuid:
+          type: string
+          description: UUID of the financial transaction
+        amount:
+          type: number
+          description: Transaction amount
+        process_date:
+          type: string
+          description: The scheduled process date of the transaction
+        status:
+          type: string
+          description: The current status of the transaction.
+          enum:
+          - Future
+          - Pending
+          - Approved
+          - Declined
+          - Chargeback
+        status_reason:
+          type: string
+          description: The reason for the Declined or Chargeback status of a transaction.
+        transaction_schedule_id:
+          type: integer
+          description: ID of the transaction schedule that created this transaction
+        bank_name:
+          type: string
+        institution_number:
+          type: string
+        transit_number:
+          type: string
+        account_number:
+          type: string
   securitySchemes:
     apiKeyAuth:
       type: apiKey

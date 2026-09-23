@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   title: Rotessa Transaction Schedules API
   version: v1
-  description: The Rotessa API provides programmatic access to the core Rotessa platform for collecting recurring payments directly from customers' bank accounts over Canadian pre-authorized debit (PAD) and US ACH rails. It lets you manage customers (bank-account holders), create one-time and recurring transaction schedules against a customer's bank account, and query the resulting financial transactions via the transaction report. Authentication is by API key placed in the Authorization header. Faithful generation from https://rotessa.com/docs/.
+  description: The Rotessa API provides programmatic access to the core Rotessa platform for collecting recurring payments directly from customers' bank accounts over Canadian pre-authorized debit (PAD) and US ACH rails.
   contact:
     name: Rotessa Support
     url: https://support.rotessa.com/
@@ -176,7 +176,47 @@ paths:
         '422':
           $ref: '#/components/responses/UnprocessableEntity'
 components:
+  responses:
+    UnprocessableEntity:
+      description: Unprocessable Entity - your request results in invalid data.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+    NotFound:
+      description: Not Found - the specified resource could not be found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+    BadRequest:
+      description: Bad Request - your request includes invalid parameters.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+    Unauthorized:
+      description: Unauthorized - your API key is not valid or is missing.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
   schemas:
+    ErrorEnvelope:
+      type: object
+      description: Rotessa error envelope. Errors are returned as a list of objects each carrying a machine-readable error_code and a human-readable error_message.
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              error_code:
+                type: string
+                example: installments_required
+              error_message:
+                type: string
+                example: Installments value must be at least 1.
     TransactionScheduleCreate:
       type: object
       required:
@@ -201,6 +241,88 @@ components:
           type: integer
           description: The number of installments. If excluded
           schedule is indefinite.: null
+        comment:
+          type: string
+          description: Optional comment for schedule
+    TransactionScheduleCreateWithCustomIdentifier:
+      type: object
+      required:
+      - custom_identifier
+      - amount
+      - process_date
+      - frequency
+      properties:
+        custom_identifier:
+          type: string
+          description: Your own unique custom identifier for the customer
+        amount:
+          type: number
+          description: Amount for schedule
+        process_date:
+          type: string
+          description: The initial date to begin withdrawing funds
+        frequency:
+          $ref: '#/components/schemas/Frequency'
+        installments:
+          type: integer
+          description: The number of installments. If excluded
+          schedule is indefinite.: null
+        comment:
+          type: string
+          description: Optional comment for schedule
+    Frequency:
+      type: string
+      description: Frequency of the transaction schedule.
+      enum:
+      - Once
+      - Weekly
+      - Every Other Week
+      - Monthly
+      - Every Other Month
+      - Quarterly
+      - Semi-Annually
+      - Yearly
+    TransactionSchedule:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ID of the transaction schedule
+        uuid:
+          type: string
+          description: UUID of the transaction schedule
+        amount:
+          type: number
+          description: Amount for schedule
+        process_date:
+          type: string
+          description: The initial date to begin withdrawing funds
+        frequency:
+          $ref: '#/components/schemas/Frequency'
+        installments:
+          type: integer
+          description: The number of installments. Leave blank to continue indefinitely.
+        comment:
+          type: string
+          description: A place to enter notes for the transaction schedule
+        next_process_date:
+          type: string
+          description: The next date that funds will be withdrawn
+        financial_transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/FinancialTransaction'
+    TransactionScheduleUpdate:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: integer
+          description: The ID of the transaction schedule to update
+        amount:
+          type: number
+          description: Amount for the schedule
         comment:
           type: string
           description: Optional comment for schedule
@@ -242,128 +364,6 @@ components:
           type: string
         account_number:
           type: string
-    ErrorEnvelope:
-      type: object
-      description: Rotessa error envelope. Errors are returned as a list of objects each carrying a machine-readable error_code and a human-readable error_message.
-      properties:
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              error_code:
-                type: string
-                example: installments_required
-              error_message:
-                type: string
-                example: Installments value must be at least 1.
-    Frequency:
-      type: string
-      description: Frequency of the transaction schedule.
-      enum:
-      - Once
-      - Weekly
-      - Every Other Week
-      - Monthly
-      - Every Other Month
-      - Quarterly
-      - Semi-Annually
-      - Yearly
-    TransactionScheduleUpdate:
-      type: object
-      required:
-      - id
-      properties:
-        id:
-          type: integer
-          description: The ID of the transaction schedule to update
-        amount:
-          type: number
-          description: Amount for the schedule
-        comment:
-          type: string
-          description: Optional comment for schedule
-    TransactionScheduleCreateWithCustomIdentifier:
-      type: object
-      required:
-      - custom_identifier
-      - amount
-      - process_date
-      - frequency
-      properties:
-        custom_identifier:
-          type: string
-          description: Your own unique custom identifier for the customer
-        amount:
-          type: number
-          description: Amount for schedule
-        process_date:
-          type: string
-          description: The initial date to begin withdrawing funds
-        frequency:
-          $ref: '#/components/schemas/Frequency'
-        installments:
-          type: integer
-          description: The number of installments. If excluded
-          schedule is indefinite.: null
-        comment:
-          type: string
-          description: Optional comment for schedule
-    TransactionSchedule:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: ID of the transaction schedule
-        uuid:
-          type: string
-          description: UUID of the transaction schedule
-        amount:
-          type: number
-          description: Amount for schedule
-        process_date:
-          type: string
-          description: The initial date to begin withdrawing funds
-        frequency:
-          $ref: '#/components/schemas/Frequency'
-        installments:
-          type: integer
-          description: The number of installments. Leave blank to continue indefinitely.
-        comment:
-          type: string
-          description: A place to enter notes for the transaction schedule
-        next_process_date:
-          type: string
-          description: The next date that funds will be withdrawn
-        financial_transactions:
-          type: array
-          items:
-            $ref: '#/components/schemas/FinancialTransaction'
-  responses:
-    UnprocessableEntity:
-      description: Unprocessable Entity - your request results in invalid data.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
-    BadRequest:
-      description: Bad Request - your request includes invalid parameters.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
-    NotFound:
-      description: Not Found - the specified resource could not be found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
-    Unauthorized:
-      description: Unauthorized - your API key is not valid or is missing.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
   securitySchemes:
     apiKeyAuth:
       type: apiKey
