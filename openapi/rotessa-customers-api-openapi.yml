@@ -174,178 +174,7 @@ paths:
         '422':
           $ref: '#/components/responses/UnprocessableEntity'
 components:
-  responses:
-    UnprocessableEntity:
-      description: Unprocessable Entity - your request results in invalid data.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
-    NotFound:
-      description: Not Found - the specified resource could not be found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
-    BadRequest:
-      description: Bad Request - your request includes invalid parameters.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
-    InternalServerError:
-      description: Internal Server Error - we had a problem with our server. Try again later.
-    Unauthorized:
-      description: Unauthorized - your API key is not valid or is missing.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
   schemas:
-    ErrorEnvelope:
-      type: object
-      description: Rotessa error envelope. Errors are returned as a list of objects each carrying a machine-readable error_code and a human-readable error_message.
-      properties:
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              error_code:
-                type: string
-                example: installments_required
-              error_message:
-                type: string
-                example: Installments value must be at least 1.
-    Address:
-      type: object
-      description: Customer address.
-      properties:
-        address_1:
-          type: string
-        address_2:
-          type: string
-        city:
-          type: string
-        province_code:
-          type: string
-          description: Province/state code
-        postal_code:
-          type: string
-        country:
-          type: string
-    CustomerUpdate:
-      allOf:
-      - type: object
-        properties:
-          id:
-            type: integer
-            description: The ID of the customer to update
-      - $ref: '#/components/schemas/CustomerCreate'
-    Frequency:
-      type: string
-      description: Frequency of the transaction schedule.
-      enum:
-      - Once
-      - Weekly
-      - Every Other Week
-      - Monthly
-      - Every Other Month
-      - Quarterly
-      - Semi-Annually
-      - Yearly
-    Customer:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: ID of the customer
-        uuid:
-          type: string
-          description: UUID of the customer
-        custom_identifier:
-          type: string
-          description: Your own unique customer identifier
-        name:
-          type: string
-          description: Full name of customer
-        email:
-          type: string
-          description: Customer email address
-        customer_type:
-          type: string
-          enum:
-          - Personal
-          - Business
-        home_phone:
-          type: string
-        phone:
-          type: string
-        bank_name:
-          type: string
-        institution_number:
-          type: string
-          description: Bank institution number for Canadian customers
-        transit_number:
-          type: string
-          description: Bank transit number for Canadian customers
-        bank_account_type:
-          type: string
-          enum:
-          - Savings
-          - Checking
-          description: For American customers
-        authorization_type:
-          type: string
-          enum:
-          - In Person
-          - Online
-        routing_number:
-          type: string
-          description: Bank routing number for American customers
-        account_number:
-          type: string
-          description: Bank account number
-        address:
-          $ref: '#/components/schemas/Address'
-        transaction_schedules:
-          type: array
-          items:
-            $ref: '#/components/schemas/TransactionSchedule'
-        financial_transactions:
-          type: array
-          items:
-            $ref: '#/components/schemas/FinancialTransaction'
-    TransactionSchedule:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: ID of the transaction schedule
-        uuid:
-          type: string
-          description: UUID of the transaction schedule
-        amount:
-          type: number
-          description: Amount for schedule
-        process_date:
-          type: string
-          description: The initial date to begin withdrawing funds
-        frequency:
-          $ref: '#/components/schemas/Frequency'
-        installments:
-          type: integer
-          description: The number of installments. Leave blank to continue indefinitely.
-        comment:
-          type: string
-          description: A place to enter notes for the transaction schedule
-        next_process_date:
-          type: string
-          description: The next date that funds will be withdrawn
-        financial_transactions:
-          type: array
-          items:
-            $ref: '#/components/schemas/FinancialTransaction'
     CustomerCreate:
       type: object
       required:
@@ -434,6 +263,177 @@ components:
           type: string
         account_number:
           type: string
+    Customer:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ID of the customer
+        uuid:
+          type: string
+          description: UUID of the customer
+        custom_identifier:
+          type: string
+          description: Your own unique customer identifier
+        name:
+          type: string
+          description: Full name of customer
+        email:
+          type: string
+          description: Customer email address
+        customer_type:
+          type: string
+          enum:
+          - Personal
+          - Business
+        home_phone:
+          type: string
+        phone:
+          type: string
+        bank_name:
+          type: string
+        institution_number:
+          type: string
+          description: Bank institution number for Canadian customers
+        transit_number:
+          type: string
+          description: Bank transit number for Canadian customers
+        bank_account_type:
+          type: string
+          enum:
+          - Savings
+          - Checking
+          description: For American customers
+        authorization_type:
+          type: string
+          enum:
+          - In Person
+          - Online
+        routing_number:
+          type: string
+          description: Bank routing number for American customers
+        account_number:
+          type: string
+          description: Bank account number
+        address:
+          $ref: '#/components/schemas/Address'
+        transaction_schedules:
+          type: array
+          items:
+            $ref: '#/components/schemas/TransactionSchedule'
+        financial_transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/FinancialTransaction'
+    CustomerUpdate:
+      allOf:
+      - type: object
+        properties:
+          id:
+            type: integer
+            description: The ID of the customer to update
+      - $ref: '#/components/schemas/CustomerCreate'
+    Frequency:
+      type: string
+      description: Frequency of the transaction schedule.
+      enum:
+      - Once
+      - Weekly
+      - Every Other Week
+      - Monthly
+      - Every Other Month
+      - Quarterly
+      - Semi-Annually
+      - Yearly
+    ErrorEnvelope:
+      type: object
+      description: Rotessa error envelope. Errors are returned as a list of objects each carrying a machine-readable error_code and a human-readable error_message.
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              error_code:
+                type: string
+                example: installments_required
+              error_message:
+                type: string
+                example: Installments value must be at least 1.
+    Address:
+      type: object
+      description: Customer address.
+      properties:
+        address_1:
+          type: string
+        address_2:
+          type: string
+        city:
+          type: string
+        province_code:
+          type: string
+          description: Province/state code
+        postal_code:
+          type: string
+        country:
+          type: string
+    TransactionSchedule:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ID of the transaction schedule
+        uuid:
+          type: string
+          description: UUID of the transaction schedule
+        amount:
+          type: number
+          description: Amount for schedule
+        process_date:
+          type: string
+          description: The initial date to begin withdrawing funds
+        frequency:
+          $ref: '#/components/schemas/Frequency'
+        installments:
+          type: integer
+          description: The number of installments. Leave blank to continue indefinitely.
+        comment:
+          type: string
+          description: A place to enter notes for the transaction schedule
+        next_process_date:
+          type: string
+          description: The next date that funds will be withdrawn
+        financial_transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/FinancialTransaction'
+  responses:
+    InternalServerError:
+      description: Internal Server Error - we had a problem with our server. Try again later.
+    Unauthorized:
+      description: Unauthorized - your API key is not valid or is missing.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+    BadRequest:
+      description: Bad Request - your request includes invalid parameters.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+    NotFound:
+      description: Not Found - the specified resource could not be found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+    UnprocessableEntity:
+      description: Unprocessable Entity - your request results in invalid data.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
   securitySchemes:
     apiKeyAuth:
       type: apiKey

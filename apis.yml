@@ -78,27 +78,12 @@ apis:
   - Customers
   - Bank Accounts
   properties:
+  - type: OpenAPI
+    url: openapi/rotessa-customers-api-openapi.yml
   - type: Documentation
     url: https://rotessa.com/docs/#customers
   - type: APIReference
     url: https://rotessa.com/docs/#customers
-- aid: rotessa:rotessa-transaction-schedules-api
-  name: Rotessa Transaction Schedules API
-  description: Create and manage one-time and recurring pre-authorized debit / ACH transaction schedules
-    against a customer's bank account, including schedule frequency, creation by Rotessa customer ID or
-    custom identifier, PATCH/POST updates, and deletion. Base URL https://api.rotessa.com/v1; API-key
-    authentication.
-  humanURL: https://rotessa.com/docs/#transaction-schedules
-  baseURL: https://api.rotessa.com/v1
-  tags:
-  - Transaction Schedules
-  - Recurring Payments
-  - Pre-Authorized Debit
-  properties:
-  - type: Documentation
-    url: https://rotessa.com/docs/#transaction-schedules
-  - type: APIReference
-    url: https://rotessa.com/docs/#transaction-schedules
 - aid: rotessa:rotessa-transaction-report-api
   name: Rotessa Transaction Report API
   description: Retrieve financial transaction records and their status (and status reasons) for reconciliation
@@ -106,48 +91,39 @@ apis:
   humanURL: https://rotessa.com/docs/#transaction-report
   baseURL: https://api.rotessa.com/v1
   tags:
+  - Transaction Report
   - Transaction
   - Reporting
   - Reconciliation
-  tags_raw:
-  - Transactions
-  - Reporting
-  - Reconciliation
   properties:
+  - type: OpenAPI
+    url: openapi/rotessa-transaction-report-api-openapi.yml
   - type: Documentation
     url: https://rotessa.com/docs/#financial-transactions
   - type: APIReference
     url: https://rotessa.com/docs/#transaction-report
-- aid: rotessa:rotessa-customers-api
-  name: Rotessa Customers API
-  description: Create, retrieve, and update the bank-account holders Rotessa withdraws from.
-  humanURL: https://rotessa.com/docs/#customers
-  baseURL: https://api.rotessa.com/v1
-  tags:
-  - Customers
-  properties:
-  - type: OpenAPI
-    url: openapi/rotessa-customers-api-openapi.yml
-- aid: rotessa:rotessa-transaction-report-api
-  name: Rotessa Transaction Report API
-  description: Retrieve financial transaction records and their status for reconciliation.
-  humanURL: https://rotessa.com/docs/#customers
-  baseURL: https://api.rotessa.com/v1
-  tags:
-  - Transaction Report
-  properties:
-  - type: OpenAPI
-    url: openapi/rotessa-transaction-report-api-openapi.yml
+  tags_raw:
+  - Transactions
+  - Reporting
+  - Reconciliation
 - aid: rotessa:rotessa-transaction-schedules-api
   name: Rotessa Transaction Schedules API
-  description: Create and manage one-time and recurring PAD/ACH transaction schedules.
-  humanURL: https://rotessa.com/docs/#customers
+  description: Create and manage one-time and recurring pre-authorized debit / ACH transaction schedules
+    against a customer's bank account, including schedule frequency, creation by Rotessa customer ID or
+    custom identifier, PATCH/POST updates, and deletion. Base URL https://api.rotessa.com/v1; API-key authentication.
+  humanURL: https://rotessa.com/docs/#transaction-schedules
   baseURL: https://api.rotessa.com/v1
   tags:
   - Transaction Schedules
+  - Recurring Payments
+  - Pre-Authorized Debit
   properties:
   - type: OpenAPI
     url: openapi/rotessa-transaction-schedules-api-openapi.yml
+  - type: Documentation
+    url: https://rotessa.com/docs/#transaction-schedules
+  - type: APIReference
+    url: https://rotessa.com/docs/#transaction-schedules
 common:
 - type: Plans
   url: plans/rotessa-plans-pricing.yml
