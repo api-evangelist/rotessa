@@ -76,34 +76,19 @@ paths:
           $ref: '#/components/responses/NotAcceptable'
 components:
   responses:
-    Unauthorized:
-      description: Unauthorized - your API key is not valid or is missing.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
     NotAcceptable:
       description: Not Acceptable - you requested a format that isn't json.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorEnvelope'
+    Unauthorized:
+      description: Unauthorized - your API key is not valid or is missing.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
   schemas:
-    ErrorEnvelope:
-      type: object
-      description: Rotessa error envelope. Errors are returned as a list of objects each carrying a machine-readable error_code and a human-readable error_message.
-      properties:
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              error_code:
-                type: string
-                example: installments_required
-              error_message:
-                type: string
-                example: Installments value must be at least 1.
     FinancialTransaction:
       type: object
       properties:
@@ -142,6 +127,21 @@ components:
           type: string
         account_number:
           type: string
+    ErrorEnvelope:
+      type: object
+      description: Rotessa error envelope. Errors are returned as a list of objects each carrying a machine-readable error_code and a human-readable error_message.
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              error_code:
+                type: string
+                example: installments_required
+              error_message:
+                type: string
+                example: Installments value must be at least 1.
   securitySchemes:
     apiKeyAuth:
       type: apiKey
