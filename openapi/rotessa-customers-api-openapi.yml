@@ -175,14 +175,21 @@ paths:
           $ref: '#/components/responses/UnprocessableEntity'
 components:
   schemas:
-    CustomerUpdate:
-      allOf:
-      - type: object
-        properties:
-          id:
-            type: integer
-            description: The ID of the customer to update
-      - $ref: '#/components/schemas/CustomerCreate'
+    ErrorEnvelope:
+      type: object
+      description: Rotessa error envelope. Errors are returned as a list of objects each carrying a machine-readable error_code and a human-readable error_message.
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              error_code:
+                type: string
+                example: installments_required
+              error_message:
+                type: string
+                example: Installments value must be at least 1.
     TransactionSchedule:
       type: object
       properties:
@@ -213,88 +220,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FinancialTransaction'
-    Address:
-      type: object
-      description: Customer address.
-      properties:
-        address_1:
-          type: string
-        address_2:
-          type: string
-        city:
-          type: string
-        province_code:
-          type: string
-          description: Province/state code
-        postal_code:
-          type: string
-        country:
-          type: string
-    CustomerCreate:
-      type: object
-      required:
-      - name
-      - account_number
-      properties:
-        name:
-          type: string
-          description: Full name of customer
-        custom_identifier:
-          type: string
-          description: Your own customer identifier. Must be unique.
-        email:
-          type: string
-        home_phone:
-          type: string
-        phone:
-          type: string
-        bank_name:
-          type: string
-        institution_number:
-          type: string
-          description: Bank institution number for Canadian customers
-        transit_number:
-          type: string
-          description: Bank transit number for Canadian customers
-        bank_account_type:
-          type: string
-          enum:
-          - Savings
-          - Checking
-          description: For American customers
-        authorization_type:
-          type: string
-          enum:
-          - In Person
-          - Online
-        routing_number:
-          type: string
-          description: Routing number for American customers
-        account_number:
-          type: string
-          description: Bank account number
-        address:
-          $ref: '#/components/schemas/Address'
-        customer_type:
-          type: string
-          enum:
-          - Personal
-          - Business
-    ErrorEnvelope:
-      type: object
-      description: Rotessa error envelope. Errors are returned as a list of objects each carrying a machine-readable error_code and a human-readable error_message.
-      properties:
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              error_code:
-                type: string
-                example: installments_required
-              error_message:
-                type: string
-                example: Installments value must be at least 1.
+    CustomerUpdate:
+      allOf:
+      - type: object
+        properties:
+          id:
+            type: integer
+            description: The ID of the customer to update
+      - $ref: '#/components/schemas/CustomerCreate'
     Customer:
       type: object
       properties:
@@ -369,6 +302,73 @@ components:
       - Quarterly
       - Semi-Annually
       - Yearly
+    Address:
+      type: object
+      description: Customer address.
+      properties:
+        address_1:
+          type: string
+        address_2:
+          type: string
+        city:
+          type: string
+        province_code:
+          type: string
+          description: Province/state code
+        postal_code:
+          type: string
+        country:
+          type: string
+    CustomerCreate:
+      type: object
+      required:
+      - name
+      - account_number
+      properties:
+        name:
+          type: string
+          description: Full name of customer
+        custom_identifier:
+          type: string
+          description: Your own customer identifier. Must be unique.
+        email:
+          type: string
+        home_phone:
+          type: string
+        phone:
+          type: string
+        bank_name:
+          type: string
+        institution_number:
+          type: string
+          description: Bank institution number for Canadian customers
+        transit_number:
+          type: string
+          description: Bank transit number for Canadian customers
+        bank_account_type:
+          type: string
+          enum:
+          - Savings
+          - Checking
+          description: For American customers
+        authorization_type:
+          type: string
+          enum:
+          - In Person
+          - Online
+        routing_number:
+          type: string
+          description: Routing number for American customers
+        account_number:
+          type: string
+          description: Bank account number
+        address:
+          $ref: '#/components/schemas/Address'
+        customer_type:
+          type: string
+          enum:
+          - Personal
+          - Business
     FinancialTransaction:
       type: object
       properties:
@@ -408,8 +408,8 @@ components:
         account_number:
           type: string
   responses:
-    UnprocessableEntity:
-      description: Unprocessable Entity - your request results in invalid data.
+    BadRequest:
+      description: Bad Request - your request includes invalid parameters.
       content:
         application/json:
           schema:
@@ -420,20 +420,20 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorEnvelope'
-    InternalServerError:
-      description: Internal Server Error - we had a problem with our server. Try again later.
+    UnprocessableEntity:
+      description: Unprocessable Entity - your request results in invalid data.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
     Unauthorized:
       description: Unauthorized - your API key is not valid or is missing.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorEnvelope'
-    BadRequest:
-      description: Bad Request - your request includes invalid parameters.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
+    InternalServerError:
+      description: Internal Server Error - we had a problem with our server. Try again later.
   securitySchemes:
     apiKeyAuth:
       type: apiKey

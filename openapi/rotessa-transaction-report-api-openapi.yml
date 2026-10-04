@@ -75,19 +75,6 @@ paths:
         '406':
           $ref: '#/components/responses/NotAcceptable'
 components:
-  responses:
-    NotAcceptable:
-      description: Not Acceptable - you requested a format that isn't json.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
-    Unauthorized:
-      description: Unauthorized - your API key is not valid or is missing.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
   schemas:
     FinancialTransaction:
       type: object
@@ -142,6 +129,19 @@ components:
               error_message:
                 type: string
                 example: Installments value must be at least 1.
+  responses:
+    NotAcceptable:
+      description: Not Acceptable - you requested a format that isn't json.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+    Unauthorized:
+      description: Unauthorized - your API key is not valid or is missing.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
   securitySchemes:
     apiKeyAuth:
       type: apiKey

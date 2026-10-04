@@ -177,6 +177,47 @@ paths:
           $ref: '#/components/responses/UnprocessableEntity'
 components:
   schemas:
+    ErrorEnvelope:
+      type: object
+      description: Rotessa error envelope. Errors are returned as a list of objects each carrying a machine-readable error_code and a human-readable error_message.
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              error_code:
+                type: string
+                example: installments_required
+              error_message:
+                type: string
+                example: Installments value must be at least 1.
+    TransactionScheduleCreateWithCustomIdentifier:
+      type: object
+      required:
+      - custom_identifier
+      - amount
+      - process_date
+      - frequency
+      properties:
+        custom_identifier:
+          type: string
+          description: Your own unique custom identifier for the customer
+        amount:
+          type: number
+          description: Amount for schedule
+        process_date:
+          type: string
+          description: The initial date to begin withdrawing funds
+        frequency:
+          $ref: '#/components/schemas/Frequency'
+        installments:
+          type: integer
+          description: The number of installments. If excluded
+          schedule is indefinite.: null
+        comment:
+          type: string
+          description: Optional comment for schedule
     TransactionSchedule:
       type: object
       properties:
@@ -207,23 +248,24 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FinancialTransaction'
-    TransactionScheduleCreateWithCustomIdentifier:
+    TransactionScheduleCreate:
       type: object
       required:
-      - custom_identifier
+      - customer_id
       - amount
       - process_date
       - frequency
       properties:
-        custom_identifier:
-          type: string
-          description: Your own unique custom identifier for the customer
+        customer_id:
+          type: integer
+          description: ID of customer
         amount:
           type: number
           description: Amount for schedule
         process_date:
           type: string
-          description: The initial date to begin withdrawing funds
+          description: The initial date to begin withdrawing funds (e.g. November 20
+          2016): null
         frequency:
           $ref: '#/components/schemas/Frequency'
         installments:
@@ -233,35 +275,6 @@ components:
         comment:
           type: string
           description: Optional comment for schedule
-    TransactionScheduleUpdate:
-      type: object
-      required:
-      - id
-      properties:
-        id:
-          type: integer
-          description: The ID of the transaction schedule to update
-        amount:
-          type: number
-          description: Amount for the schedule
-        comment:
-          type: string
-          description: Optional comment for schedule
-    ErrorEnvelope:
-      type: object
-      description: Rotessa error envelope. Errors are returned as a list of objects each carrying a machine-readable error_code and a human-readable error_message.
-      properties:
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              error_code:
-                type: string
-                example: installments_required
-              error_message:
-                type: string
-                example: Installments value must be at least 1.
     Frequency:
       type: string
       description: Frequency of the transaction schedule.
@@ -312,54 +325,41 @@ components:
           type: string
         account_number:
           type: string
-    TransactionScheduleCreate:
+    TransactionScheduleUpdate:
       type: object
       required:
-      - customer_id
-      - amount
-      - process_date
-      - frequency
+      - id
       properties:
-        customer_id:
+        id:
           type: integer
-          description: ID of customer
+          description: The ID of the transaction schedule to update
         amount:
           type: number
-          description: Amount for schedule
-        process_date:
-          type: string
-          description: The initial date to begin withdrawing funds (e.g. November 20
-          2016): null
-        frequency:
-          $ref: '#/components/schemas/Frequency'
-        installments:
-          type: integer
-          description: The number of installments. If excluded
-          schedule is indefinite.: null
+          description: Amount for the schedule
         comment:
           type: string
           description: Optional comment for schedule
   responses:
-    NotFound:
-      description: Not Found - the specified resource could not be found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
-    Unauthorized:
-      description: Unauthorized - your API key is not valid or is missing.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
     BadRequest:
       description: Bad Request - your request includes invalid parameters.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorEnvelope'
+    NotFound:
+      description: Not Found - the specified resource could not be found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
     UnprocessableEntity:
       description: Unprocessable Entity - your request results in invalid data.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+    Unauthorized:
+      description: Unauthorized - your API key is not valid or is missing.
       content:
         application/json:
           schema:
