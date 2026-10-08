@@ -64,3 +64,67 @@ plans:
 - name: 1001+ Transactions
   price_text: Custom
   period: none
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - hybrid
+  - metered
+  units:
+  - transaction
+  plans:
+  - name: Base plan
+    access: other
+    model: metered
+    model_how: derived
+    units:
+    - transaction
+    periods:
+    - month
+  - name: 1-10 Transactions
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - transaction
+    periods:
+    - month
+  - name: 11-50 Transactions
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - transaction
+    periods:
+    - month
+  - name: 51-100 Transactions
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - transaction
+    periods:
+    - month
+  - name: 101-250 Transactions
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - transaction
+    periods:
+    - month
+  - name: 251-1000 Transactions
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - transaction
+    periods:
+    - other
+  - name: 1001+ Transactions
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - none
