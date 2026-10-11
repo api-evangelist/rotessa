@@ -10,6 +10,7 @@
   use_case: Create Rotessa customers from new QuickBooks Online customers
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/quickbooks/integrations/rotessa/422226/create-rotessa-customers-from-new-quickbooks-online-customers
   template: https://zapier.com/apps/quickbooks/integrations/rotessa/422226/create-rotessa-customers-from-new-quickbooks-online-customers
   source: template
@@ -22,6 +23,7 @@
   use_case: Create Rotessa transactions from new QuickBooks Online invoices
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/quickbooks/integrations/rotessa/425274/create-rotessa-transactions-from-new-quickbooks-online-invoices
   template: https://zapier.com/apps/quickbooks/integrations/rotessa/425274/create-rotessa-transactions-from-new-quickbooks-online-invoices
   source: template
@@ -35,6 +37,7 @@
   use_case: Create records in Airtable for every new customer in Rotessa
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/airtable/integrations/rotessa/1689717/create-records-in-airtable-for-every-new-customer-in-rotessa
   template: https://zapier.com/apps/airtable/integrations/rotessa/1689717/create-records-in-airtable-for-every-new-customer-in-rotessa
   source: template
@@ -48,6 +51,7 @@
   use_case: Notify of declined transactions in Rotessa with an email through Gmail
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/gmail/integrations/rotessa/1720005/notify-of-declined-transactions-in-rotessa-with-an-email-through-gmail
   template: https://zapier.com/apps/gmail/integrations/rotessa/1720005/notify-of-declined-transactions-in-rotessa-with-an-email-through-gmail
   source: template
@@ -61,6 +65,7 @@
   use_case: Create Google Sheets rows for approved Rotessa transactions
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/google-sheets/integrations/rotessa/255673055/create-google-sheets-rows-for-approved-rotessa-transactions
   template: https://zapier.com/apps/google-sheets/integrations/rotessa/255673055/create-google-sheets-rows-for-approved-rotessa-transactions
   source: template
@@ -73,6 +78,7 @@
   category: Marketing Automation
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/hubspot
   source: edge
   status: pending-generation
@@ -84,6 +90,7 @@
   category: Forms & Surveys
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/jotform
   source: edge
   status: pending-generation
@@ -95,6 +102,7 @@
   category: Calendar
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/microsoft-outlook
   source: edge
   status: pending-generation
@@ -106,6 +114,7 @@
   category: Accounting
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/zoho-books
   source: edge
   status: pending-generation
@@ -117,6 +126,7 @@
   category: CRM (Customer Relationship Management)
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/nationbuilder
   source: edge
   status: pending-generation
@@ -128,6 +138,7 @@
   category: Databases
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/lusha-connect
   source: edge
   status: pending-generation
@@ -138,6 +149,7 @@
   category: CRM (Customer Relationship Management)
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/dubsado
   source: edge
   status: pending-partner-spec
@@ -149,6 +161,7 @@
   category: Transactional Email
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/mailgun
   source: edge
   status: pending-generation
@@ -160,6 +173,7 @@
   category: Task Management
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/notion
   source: edge
   status: pending-generation
@@ -171,6 +185,7 @@
   category: Project Management
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/monday
   source: edge
   status: pending-generation
@@ -182,6 +197,7 @@
   category: Project Management
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/clickup
   source: edge
   status: pending-generation
@@ -193,6 +209,7 @@
   category: Marketing Automation
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/activecampaign
   source: edge
   status: pending-generation
@@ -204,6 +221,7 @@
   category: Project Management
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/trello
   source: edge
   status: pending-generation
@@ -215,6 +233,7 @@
   category: Payment Processing
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/stripe-legacy
   source: edge
   status: pending-generation
@@ -226,6 +245,7 @@
   category: App Builder
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/caspio
   source: edge
   status: pending-generation
@@ -237,6 +257,7 @@
   category: CRM (Customer Relationship Management)
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/twenty
   source: edge
   status: pending-generation
@@ -247,6 +268,7 @@
   category: Forms & Surveys
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/google-forms-legacy
   source: edge
   status: pending-partner-spec

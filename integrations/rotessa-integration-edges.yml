@@ -3,10 +3,14 @@ method: searched
 source:
 - https://zapier.com/apps/rotessa/integrations
 checked:
+- https://composio.dev/toolkits/rotessa
+- https://monid.ai/tools/rotessa
+- https://n8n.io/integrations/rotessa/
 - https://zapier.com/apps/rotessa/integrations
 summary: null
 marketplace_apps:
 - marketplace: zapier
+  channel: ipaas-listing
   app: rotessa
   url: https://zapier.com/apps/rotessa/integrations
   external_url: https://docs.rotessa.com/
@@ -39,6 +43,7 @@ edges:
   partner_candidate: null
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/gmail
   direction: third-party
   category: Email
@@ -49,6 +54,7 @@ edges:
   partner_candidate: null
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/airtable
   direction: third-party
   category: Databases
@@ -59,6 +65,7 @@ edges:
   partner_candidate: null
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/quickbooks
   direction: third-party
   category: Accounting
@@ -69,6 +76,7 @@ edges:
   partner_candidate: null
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/hubspot
   direction: third-party
   category: Marketing Automation
@@ -79,6 +87,7 @@ edges:
   partner_candidate: null
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/jotform
   direction: third-party
   category: Forms & Surveys
@@ -89,6 +98,7 @@ edges:
   partner_candidate: null
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/microsoft-outlook
   direction: third-party
   category: Calendar
@@ -99,6 +109,7 @@ edges:
   partner_candidate: null
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/zoho-books
   direction: third-party
   category: Accounting
@@ -109,6 +120,7 @@ edges:
   partner_candidate: null
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/google-sheets
   direction: third-party
   category: Google
@@ -119,6 +131,7 @@ edges:
   partner_candidate: null
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/nationbuilder
   direction: third-party
   category: CRM (Customer Relationship Management)
@@ -129,6 +142,7 @@ edges:
   partner_candidate: null
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/lusha-connect
   direction: third-party
   category: Databases
@@ -139,6 +153,7 @@ edges:
   partner_candidate: null
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/dubsado
   direction: third-party
   category: CRM (Customer Relationship Management)
@@ -149,6 +164,7 @@ edges:
   partner_candidate: null
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/mailgun
   direction: third-party
   category: Transactional Email
@@ -159,6 +175,7 @@ edges:
   partner_candidate: null
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/notion
   direction: third-party
   category: Task Management
@@ -169,6 +186,7 @@ edges:
   partner_candidate: null
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/monday
   direction: third-party
   category: Project Management
@@ -179,6 +197,7 @@ edges:
   partner_candidate: null
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/clickup
   direction: third-party
   category: Project Management
@@ -189,6 +208,7 @@ edges:
   partner_candidate: null
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/activecampaign
   direction: third-party
   category: Marketing Automation
@@ -199,6 +219,7 @@ edges:
   partner_candidate: null
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/trello
   direction: third-party
   category: Project Management
@@ -209,6 +230,7 @@ edges:
   partner_candidate: null
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/stripe-legacy
   direction: third-party
   category: Payment Processing
@@ -219,6 +241,7 @@ edges:
   partner_candidate: null
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/caspio
   direction: third-party
   category: App Builder
@@ -229,6 +252,7 @@ edges:
   partner_candidate: null
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/twenty
   direction: third-party
   category: CRM (Customer Relationship Management)
@@ -239,6 +263,7 @@ edges:
   partner_candidate: null
   type: marketplace
   marketplace: zapier
+  channel: ipaas-usage
   evidence: https://zapier.com/apps/rotessa/integrations/google-forms-legacy
   direction: third-party
   category: Forms & Surveys
