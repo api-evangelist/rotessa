@@ -1,0 +1,307 @@
+generated: '2026-10-12'
+method: searched
+source:
+- https://zapier.com/apps/rotessa/integrations
+checked:
+- https://zapier.com/apps/rotessa/integrations
+summary: null
+marketplace_apps:
+- marketplace: zapier
+  app: rotessa
+  url: https://zapier.com/apps/rotessa/integrations
+  external_url: https://docs.rotessa.com/
+  partner_tier: BRONZE
+  triggers:
+  - key: list_approve_transaction
+    label: Transaction Approved
+  - key: list_declined_transaction
+    label: Declined Transaction
+  - key: new_customer
+    label: New Customer
+  - key: new_customer_with_customer_authorization
+    label: New Customer With  Customer Authorization
+  - key: update_customer
+    label: Customer Change
+  actions:
+  - key: create_customer
+    label: Create Customer
+  - key: create_transaction
+    label: Create Transaction
+  - key: update_customer_action
+    label: Update Customer
+  searches:
+  - key: find_customer
+    label: Match a Customer
+edges:
+- partner_name: Gmail
+  partner: gmail
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  evidence: https://zapier.com/apps/rotessa/integrations/gmail
+  direction: third-party
+  category: Email
+  partner_url: https://mail.google.com/
+- partner_name: Airtable
+  partner: airtable
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  evidence: https://zapier.com/apps/rotessa/integrations/airtable
+  direction: third-party
+  category: Databases
+  partner_url: https://airtable.com/
+- partner_name: QuickBooks Online
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  evidence: https://zapier.com/apps/rotessa/integrations/quickbooks
+  direction: third-party
+  category: Accounting
+  partner_url: http://intuit.com/
+- partner_name: HubSpot
+  partner: hubspot
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  evidence: https://zapier.com/apps/rotessa/integrations/hubspot
+  direction: third-party
+  category: Marketing Automation
+  partner_url: http://www.hubspot.com/
+- partner_name: Jotform
+  partner: jotform
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  evidence: https://zapier.com/apps/rotessa/integrations/jotform
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: http://www.jotform.com/
+- partner_name: Microsoft Outlook
+  partner: microsoft-outlook
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  evidence: https://zapier.com/apps/rotessa/integrations/microsoft-outlook
+  direction: third-party
+  category: Calendar
+  partner_url: https://outlook.live.com/
+- partner_name: Zoho Books
+  partner: zoho-books
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  evidence: https://zapier.com/apps/rotessa/integrations/zoho-books
+  direction: third-party
+  category: Accounting
+  partner_url: https://go.zoho.com/3Al
+- partner_name: Google Sheets
+  partner: google-sheets
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  evidence: https://zapier.com/apps/rotessa/integrations/google-sheets
+  direction: third-party
+  category: Google
+  partner_url: http://sheets.google.com/
+- partner_name: NationBuilder
+  partner: nationbuilder
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  evidence: https://zapier.com/apps/rotessa/integrations/nationbuilder
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://nationbuilder.com/?utm_source=zapier&utm_medium=referral
+- partner_name: Lusha Connect
+  partner: lusha
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  evidence: https://zapier.com/apps/rotessa/integrations/lusha-connect
+  direction: third-party
+  category: Databases
+  partner_url: https://www.lusha.com/
+- partner_name: Dubsado
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  evidence: https://zapier.com/apps/rotessa/integrations/dubsado
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://www.dubsado.com/
+- partner_name: Mailgun
+  partner: mailgun
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  evidence: https://zapier.com/apps/rotessa/integrations/mailgun
+  direction: third-party
+  category: Transactional Email
+  partner_url: https://www.mailgun.com/
+- partner_name: Notion
+  partner: notion
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  evidence: https://zapier.com/apps/rotessa/integrations/notion
+  direction: third-party
+  category: Task Management
+  partner_url: https://www.notion.so/
+- partner_name: monday.com
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  evidence: https://zapier.com/apps/rotessa/integrations/monday
+  direction: third-party
+  category: Project Management
+  partner_url: https://monday.com/
+- partner_name: ClickUp
+  partner: clickup
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  evidence: https://zapier.com/apps/rotessa/integrations/clickup
+  direction: third-party
+  category: Project Management
+  partner_url: https://clickup.com/zapier
+- partner_name: ActiveCampaign
+  partner: activecampaign
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  evidence: https://zapier.com/apps/rotessa/integrations/activecampaign
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://www.activecampaign.com/?utm_source=unpaid_syndication_website&utm_medium=referral&utm_campaign=zapier_listing
+- partner_name: Trello
+  partner: trello
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  evidence: https://zapier.com/apps/rotessa/integrations/trello
+  direction: third-party
+  category: Project Management
+  partner_url: https://trello.com/
+- partner_name: Stripe (Legacy)
+  partner: stripe
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  evidence: https://zapier.com/apps/rotessa/integrations/stripe-legacy
+  direction: third-party
+  category: Payment Processing
+  partner_url: https://stripe.com/
+- partner_name: Caspio
+  partner: caspio
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  evidence: https://zapier.com/apps/rotessa/integrations/caspio
+  direction: third-party
+  category: App Builder
+  partner_url: https://pages.caspio.com/free-trial
+- partner_name: Twenty
+  partner: twenty
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  evidence: https://zapier.com/apps/rotessa/integrations/twenty
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://twenty.com/
+- partner_name: Google Forms (Legacy)
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  evidence: https://zapier.com/apps/rotessa/integrations/google-forms-legacy
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: http://google.com/
+templates:
+- title: Create Rotessa customers from new QuickBooks Online customers
+  url: https://zapier.com/apps/quickbooks/integrations/rotessa/422226/create-rotessa-customers-from-new-quickbooks-online-customers
+  apps:
+  - quickbooks
+  - rotessa
+- title: Create Rotessa transactions from new QuickBooks Online invoices
+  url: https://zapier.com/apps/quickbooks/integrations/rotessa/425274/create-rotessa-transactions-from-new-quickbooks-online-invoices
+  apps:
+  - quickbooks
+  - rotessa
+- title: Create Rotessa customers from new Xero contacts
+  url: https://zapier.com/apps/rotessa/integrations/xero/425297/create-rotessa-customers-from-new-xero-contacts
+  apps:
+  - xero
+  - rotessa
+- title: Create Xero payments for approved Rotessa transactions
+  url: https://zapier.com/apps/rotessa/integrations/xero/425308/create-xero-payments-for-approved-rotessa-transactions
+  apps:
+  - rotessa
+  - xero
+- title: Create Rotessa transactions for new Chargebee invoices
+  url: https://zapier.com/apps/chargebee/integrations/rotessa/433666/create-rotessa-transactions-for-new-chargebee-invoices
+  apps:
+  - chargebee
+  - rotessa
+- title: Create records in Airtable for every new customer in Rotessa
+  url: https://zapier.com/apps/airtable/integrations/rotessa/1689717/create-records-in-airtable-for-every-new-customer-in-rotessa
+  apps:
+  - rotessa
+  - airtable
+- title: Create new Rotessa customers from updated statuses in Credit Repair Cloud
+  url: https://zapier.com/apps/credit-repair-cloud/integrations/rotessa/1708561/create-new-rotessa-customers-from-updated-statuses-in-credit-repair-cloud
+  apps:
+  - credit-repair-cloud
+  - rotessa
+- title: Send outbound emails with Email by Zapier when new transactions are approved in Rotessa
+  url: https://zapier.com/apps/email/integrations/rotessa/1712069/send-outbound-emails-with-email-by-zapier-when-new-transactions-are-approved-in-rotessa
+  apps:
+  - rotessa
+  - email
+- title: Notify of declined transactions in Rotessa with an email through Gmail
+  url: https://zapier.com/apps/gmail/integrations/rotessa/1720005/notify-of-declined-transactions-in-rotessa-with-an-email-through-gmail
+  apps:
+  - rotessa
+  - gmail
+- title: Create messages in Google Chat for new authorized customers in Rotessa
+  url: https://zapier.com/apps/google-chat/integrations/rotessa/1744089/create-messages-in-google-chat-for-new-authorized-customers-in-rotessa
+  apps:
+  - rotessa
+  - google-chat
+- title: Send WhatsApp Notifications messages when new transactions are approved in Rotessa
+  url: https://zapier.com/apps/rotessa/integrations/whatsapp-notifications/255594844/send-whatsapp-notifications-messages-when-new-transactions-are-approved-in-rotessa
+  apps:
+  - rotessa
+  - whatsapp-notifications
+- title: Create Google Sheets rows for approved Rotessa transactions
+  url: https://zapier.com/apps/google-sheets/integrations/rotessa/255673055/create-google-sheets-rows-for-approved-rotessa-transactions
+  apps:
+  - rotessa
+  - google-sheets
+template_total: 12
