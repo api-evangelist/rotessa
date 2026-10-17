@@ -130,14 +130,14 @@ components:
                 type: string
                 example: Installments value must be at least 1.
   responses:
-    NotAcceptable:
-      description: Not Acceptable - you requested a format that isn't json.
+    Unauthorized:
+      description: Unauthorized - your API key is not valid or is missing.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorEnvelope'
-    Unauthorized:
-      description: Unauthorized - your API key is not valid or is missing.
+    NotAcceptable:
+      description: Not Acceptable - you requested a format that isn't json.
       content:
         application/json:
           schema:

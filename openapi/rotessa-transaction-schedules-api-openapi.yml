@@ -177,6 +177,45 @@ paths:
           $ref: '#/components/responses/UnprocessableEntity'
 components:
   schemas:
+    TransactionScheduleCreate:
+      type: object
+      required:
+      - customer_id
+      - amount
+      - process_date
+      - frequency
+      properties:
+        customer_id:
+          type: integer
+          description: ID of customer
+        amount:
+          type: number
+          description: Amount for schedule
+        process_date:
+          type: string
+          description: The initial date to begin withdrawing funds (e.g. November 20
+          2016): null
+        frequency:
+          $ref: '#/components/schemas/Frequency'
+        installments:
+          type: integer
+          description: The number of installments. If excluded
+          schedule is indefinite.: null
+        comment:
+          type: string
+          description: Optional comment for schedule
+    Frequency:
+      type: string
+      description: Frequency of the transaction schedule.
+      enum:
+      - Once
+      - Weekly
+      - Every Other Week
+      - Monthly
+      - Every Other Month
+      - Quarterly
+      - Semi-Annually
+      - Yearly
     ErrorEnvelope:
       type: object
       description: Rotessa error envelope. Errors are returned as a list of objects each carrying a machine-readable error_code and a human-readable error_message.
@@ -248,45 +287,20 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FinancialTransaction'
-    TransactionScheduleCreate:
+    TransactionScheduleUpdate:
       type: object
       required:
-      - customer_id
-      - amount
-      - process_date
-      - frequency
+      - id
       properties:
-        customer_id:
+        id:
           type: integer
-          description: ID of customer
+          description: The ID of the transaction schedule to update
         amount:
           type: number
-          description: Amount for schedule
-        process_date:
-          type: string
-          description: The initial date to begin withdrawing funds (e.g. November 20
-          2016): null
-        frequency:
-          $ref: '#/components/schemas/Frequency'
-        installments:
-          type: integer
-          description: The number of installments. If excluded
-          schedule is indefinite.: null
+          description: Amount for the schedule
         comment:
           type: string
           description: Optional comment for schedule
-    Frequency:
-      type: string
-      description: Frequency of the transaction schedule.
-      enum:
-      - Once
-      - Weekly
-      - Every Other Week
-      - Monthly
-      - Every Other Month
-      - Quarterly
-      - Semi-Annually
-      - Yearly
     FinancialTransaction:
       type: object
       properties:
@@ -325,23 +339,9 @@ components:
           type: string
         account_number:
           type: string
-    TransactionScheduleUpdate:
-      type: object
-      required:
-      - id
-      properties:
-        id:
-          type: integer
-          description: The ID of the transaction schedule to update
-        amount:
-          type: number
-          description: Amount for the schedule
-        comment:
-          type: string
-          description: Optional comment for schedule
   responses:
-    BadRequest:
-      description: Bad Request - your request includes invalid parameters.
+    UnprocessableEntity:
+      description: Unprocessable Entity - your request results in invalid data.
       content:
         application/json:
           schema:
@@ -352,8 +352,8 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorEnvelope'
-    UnprocessableEntity:
-      description: Unprocessable Entity - your request results in invalid data.
+    BadRequest:
+      description: Bad Request - your request includes invalid parameters.
       content:
         application/json:
           schema:

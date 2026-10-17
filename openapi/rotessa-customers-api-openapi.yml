@@ -175,6 +175,18 @@ paths:
           $ref: '#/components/responses/UnprocessableEntity'
 components:
   schemas:
+    Frequency:
+      type: string
+      description: Frequency of the transaction schedule.
+      enum:
+      - Once
+      - Weekly
+      - Every Other Week
+      - Monthly
+      - Every Other Month
+      - Quarterly
+      - Semi-Annually
+      - Yearly
     ErrorEnvelope:
       type: object
       description: Rotessa error envelope. Errors are returned as a list of objects each carrying a machine-readable error_code and a human-readable error_message.
@@ -190,44 +202,56 @@ components:
               error_message:
                 type: string
                 example: Installments value must be at least 1.
-    TransactionSchedule:
+    CustomerCreate:
       type: object
+      required:
+      - name
+      - account_number
       properties:
-        id:
-          type: integer
-          description: ID of the transaction schedule
-        uuid:
+        name:
           type: string
-          description: UUID of the transaction schedule
-        amount:
-          type: number
-          description: Amount for schedule
-        process_date:
+          description: Full name of customer
+        custom_identifier:
           type: string
-          description: The initial date to begin withdrawing funds
-        frequency:
-          $ref: '#/components/schemas/Frequency'
-        installments:
-          type: integer
-          description: The number of installments. Leave blank to continue indefinitely.
-        comment:
+          description: Your own customer identifier. Must be unique.
+        email:
           type: string
-          description: A place to enter notes for the transaction schedule
-        next_process_date:
+        home_phone:
           type: string
-          description: The next date that funds will be withdrawn
-        financial_transactions:
-          type: array
-          items:
-            $ref: '#/components/schemas/FinancialTransaction'
-    CustomerUpdate:
-      allOf:
-      - type: object
-        properties:
-          id:
-            type: integer
-            description: The ID of the customer to update
-      - $ref: '#/components/schemas/CustomerCreate'
+        phone:
+          type: string
+        bank_name:
+          type: string
+        institution_number:
+          type: string
+          description: Bank institution number for Canadian customers
+        transit_number:
+          type: string
+          description: Bank transit number for Canadian customers
+        bank_account_type:
+          type: string
+          enum:
+          - Savings
+          - Checking
+          description: For American customers
+        authorization_type:
+          type: string
+          enum:
+          - In Person
+          - Online
+        routing_number:
+          type: string
+          description: Routing number for American customers
+        account_number:
+          type: string
+          description: Bank account number
+        address:
+          $ref: '#/components/schemas/Address'
+        customer_type:
+          type: string
+          enum:
+          - Personal
+          - Business
     Customer:
       type: object
       properties:
@@ -290,85 +314,44 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FinancialTransaction'
-    Frequency:
-      type: string
-      description: Frequency of the transaction schedule.
-      enum:
-      - Once
-      - Weekly
-      - Every Other Week
-      - Monthly
-      - Every Other Month
-      - Quarterly
-      - Semi-Annually
-      - Yearly
-    Address:
+    CustomerUpdate:
+      allOf:
+      - type: object
+        properties:
+          id:
+            type: integer
+            description: The ID of the customer to update
+      - $ref: '#/components/schemas/CustomerCreate'
+    TransactionSchedule:
       type: object
-      description: Customer address.
       properties:
-        address_1:
+        id:
+          type: integer
+          description: ID of the transaction schedule
+        uuid:
           type: string
-        address_2:
+          description: UUID of the transaction schedule
+        amount:
+          type: number
+          description: Amount for schedule
+        process_date:
           type: string
-        city:
+          description: The initial date to begin withdrawing funds
+        frequency:
+          $ref: '#/components/schemas/Frequency'
+        installments:
+          type: integer
+          description: The number of installments. Leave blank to continue indefinitely.
+        comment:
           type: string
-        province_code:
+          description: A place to enter notes for the transaction schedule
+        next_process_date:
           type: string
-          description: Province/state code
-        postal_code:
-          type: string
-        country:
-          type: string
-    CustomerCreate:
-      type: object
-      required:
-      - name
-      - account_number
-      properties:
-        name:
-          type: string
-          description: Full name of customer
-        custom_identifier:
-          type: string
-          description: Your own customer identifier. Must be unique.
-        email:
-          type: string
-        home_phone:
-          type: string
-        phone:
-          type: string
-        bank_name:
-          type: string
-        institution_number:
-          type: string
-          description: Bank institution number for Canadian customers
-        transit_number:
-          type: string
-          description: Bank transit number for Canadian customers
-        bank_account_type:
-          type: string
-          enum:
-          - Savings
-          - Checking
-          description: For American customers
-        authorization_type:
-          type: string
-          enum:
-          - In Person
-          - Online
-        routing_number:
-          type: string
-          description: Routing number for American customers
-        account_number:
-          type: string
-          description: Bank account number
-        address:
-          $ref: '#/components/schemas/Address'
-        customer_type:
-          type: string
-          enum:
-          - Personal
-          - Business
+          description: The next date that funds will be withdrawn
+        financial_transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/FinancialTransaction'
     FinancialTransaction:
       type: object
       properties:
@@ -407,9 +390,26 @@ components:
           type: string
         account_number:
           type: string
+    Address:
+      type: object
+      description: Customer address.
+      properties:
+        address_1:
+          type: string
+        address_2:
+          type: string
+        city:
+          type: string
+        province_code:
+          type: string
+          description: Province/state code
+        postal_code:
+          type: string
+        country:
+          type: string
   responses:
-    BadRequest:
-      description: Bad Request - your request includes invalid parameters.
+    UnprocessableEntity:
+      description: Unprocessable Entity - your request results in invalid data.
       content:
         application/json:
           schema:
@@ -420,8 +420,8 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorEnvelope'
-    UnprocessableEntity:
-      description: Unprocessable Entity - your request results in invalid data.
+    BadRequest:
+      description: Bad Request - your request includes invalid parameters.
       content:
         application/json:
           schema:
